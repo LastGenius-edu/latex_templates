@@ -126,29 +126,35 @@ Go and others try to address C’s problem, unsuccessfully.
 
 	Should probably spend some time explaining the memory layout,
 	so it'd be possible to explain buffer overflows, dangling 
-	pointers and null pointers.
+	pointers and null pointers.sasasjasa
 \end{frame}
 
 \begin{frame}{Buffer overflows} 
-	\inputminted[fontsize=\Large]{rust}{helloworld.rs}
+	\inputminted[fontsize=\large]{c}{code/overflow.c}
 \end{frame}
 
 \begin{frame}{Null pointers}
+	\inputminted[fontsize=\large]{c}{code/nullp.c}
 \end{frame}
 
 \begin{frame}{Dangling pointers} 
+	\inputminted[fontsize=\large]{c}{code/danp.c}
 \end{frame}
 
-\begin{frame}{Double frees} 
-\end{frame}
-
-\begin{frame}{Not freed data} 
+\begin{frame}{Invalidated iterators} 
+	\inputminted[fontsize=\large]{c}{code/iter.c}
 \end{frame}
 
 \begin{frame}{No real error checking} 
+	\inputminted[fontsize=\large]{c}{code/errorcheck.c}
 \end{frame}
 
-\begin{frame}{Not thread-safe} 
+\begin{frame}{And many more...}
+	\begin{enumerate}
+		\item Memory leak - you can forget to free data
+		\item Thread unsafety - another function can be modifying the same memory
+		\item Double free - you can free the same memory twice (as a part of a struct, for example)
+	\end{enumerate}
 \end{frame}
 
 

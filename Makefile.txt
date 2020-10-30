@@ -1,20 +1,17 @@
-GRAPHICS := 10.jpg  3.jpg  6.jpg  Background-Dark.png                   logo-apps-new.png
-1.jpg   4.jpg  7.jpg  da597666f655cfb8a0fe654939b234f0.jpg  ritchie.jpg
-2.jpg   5.jpg  9.jpg  darth.jpg
+filename=main
 
-CODE := helloworld.rs
+GRAPHICS := 10.jpg  3.jpg  6.jpg  Background-Dark.png logo-apps-new.png 1.jpg   4.jpg  7.jpg  da597666f655cfb8a0fe654939b234f0.jpg  ritchie.jpg 2.jpg   5.jpg  9.jpg  darth.jpg
 
-GRAPHICS := $(patsubst %, graphics/%, $(GRAPHICS))
-CODE := $(patsubst %, code/%, $(CODE))
+CODE := helloworld.rs overflow.c
 
-all: main.pdf removestuff
+GRAPHICS_NEW := $(patsubst %, graphics/%, $(GRAPHICS))
+CODE_NEW := $(patsubst %, code/%, $(CODE))
 
+all: ${filename}.pdf clean
 
-%.pdf: %.tex GRAPHICS CODE
+%.pdf: %.tex ${CODE_NEW} ${GRAPHICS_NEW}
 	pdflatex -shell-escape $<
 
 
-.PHONY: removestuff
-removestuff:
-	rm main.aux  main.log  main.out  main.run.xml  main.vrb 
-	main.bcf  main.nav  main.snm      main.toc
+clean:
+	rm -f ${filename}.{aux,log,out,run.xml,vrb,bcf,nav,snm,toc}
