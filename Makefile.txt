@@ -1,0 +1,20 @@
+GRAPHICS := 10.jpg  3.jpg  6.jpg  Background-Dark.png                   logo-apps-new.png
+1.jpg   4.jpg  7.jpg  da597666f655cfb8a0fe654939b234f0.jpg  ritchie.jpg
+2.jpg   5.jpg  9.jpg  darth.jpg
+
+CODE := helloworld.rs
+
+GRAPHICS := $(patsubst %, graphics/%, $(GRAPHICS))
+CODE := $(patsubst %, code/%, $(CODE))
+
+all: main.pdf removestuff
+
+
+%.pdf: %.tex GRAPHICS CODE
+	pdflatex -shell-escape $<
+
+
+.PHONY: removestuff
+removestuff:
+	rm main.aux  main.log  main.out  main.run.xml  main.vrb 
+	main.bcf  main.nav  main.snm      main.toc
