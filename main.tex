@@ -126,13 +126,19 @@ low-levelness,
 
 \section{Pitfalls of the old ways}
 
-\begin{frame}{General stuff} 
-	General stuff about how they are not memory-safe.
-	
+\begin{frame}{Memory layout} 
+\inputminted[fontsize=\large]{c}{code/stack.c}
+\end{frame}
 
-	*Should probably spend some time explaining the memory layout,
-	so it'd be possible to explain buffer overflows, dangling 
-	pointers and null pointers.*
+\begin{frame}{Memory layout} 
+
+\begin{figure}[ht]
+	\includegraphics[width=0.4\textwidth]{graphics/stack1.png}
+  \hfill
+	\includegraphics[width=0.4\textwidth]{graphics/stack2.png}
+	\hfill
+\end{figure}
+	
 \end{frame}
 
 \begin{frame}{Buffer overflows} 
@@ -276,6 +282,7 @@ And Rust has a great ecosystem:
 		\end{itemize}
 	\item rustfmt is a standard formatter
 \end{itemize}
+\vspace{0.55cm}
 \end{frame}
 
 \framepic{graphics/1.jpg}{
@@ -286,14 +293,20 @@ And Rust has a great ecosystem:
 \section{Basic syntax and concepts}
 
 \begin{frame}{Hello world!}
-
+	\large
+	\textcolor{ucuyellow}{
+	All of the code snippets for this lecture\\
+	are available in the repository!}
+	\vspace{0.5cm}
 	\inputminted[fontsize=\Large]{c}{code/helloworld.rs}
+	\vspace{0.4cm}
+	\inputminted[fontsize=\Large]{bash}{code/helloworld.sh}
 
 \end{frame}
 
 \begin{frame}{Hello cargo!}
 
-	\inputminted[fontsize=\Large]{c}{code/hellocargo.rs}
+	\inputminted[fontsize=\Large]{bash}{code/hellocargo.sh}
 
 \end{frame}
 
@@ -306,15 +319,18 @@ And Rust has a great ecosystem:
 
 \begin{frame}{Guessing game}
 	\framesubtitle{Basics}
-	*Type system explanation, print macros, expect() and methods*
+\textcolor{ucuyellow}{Let's make a simple guessing game!}
+	\vspace{0.4cm}
 	\inputminted[fontsize=\normalsize]{c}{code/guess1.rs}
+	\vspace{0.4cm}
 \end{frame}
 
 \begin{frame}{Guessing game}
 	\framesubtitle{Cargo dependencies}
 	\Large
-	*Explain how dependencies work.\\
-	Or at least try to.*
+	Let's add a random number generator. We have\\
+	to add a dependency for \textcolor{ucuyellow}{rand} crate for this.\\
+	(crates are Rust's libraries and modules)
 	\vspace{0.5cm}
 
 	Add this to your Cargo.toml file:
@@ -328,13 +344,13 @@ And Rust has a great ecosystem:
 
 \begin{frame}{Guessing game}
 	\framesubtitle{(Wrong) Input comparison}
-	*Match expression, enumerators explanation.*
+	%Match expression, enumerators explanation.*
 	\inputminted[fontsize=\normalsize]{c}{code/guess3.rs}
 \end{frame}
 
 \begin{frame}{Guessing game}
 	\framesubtitle{Input comparison}
-	*Ownership explanation, maybe add a slide about that?*
+	%Ownership explanation, maybe add a slide about that?*
 	\inputminted[fontsize=\normalsize]{c}{code/guess4.rs}
 \end{frame}
 
@@ -342,7 +358,7 @@ And Rust has a great ecosystem:
 	\framesubtitle{General}
 	\normalsize
 	Rust enforces its own (rational) system of ownership\\
-	and lifetimes. A few main points:
+	and lifetimes, ensuring a few main points:
 	\begin{itemize}
 		\item Borrowing
 		\begin{itemize}
@@ -366,8 +382,10 @@ And Rust has a great ecosystem:
 
 \begin{frame}{Ownership and lifetimes}
 	\framesubtitle{Examples}
+	1st example. Does this compile and why?
 	\inputminted[fontsize=\normalsize]{c}{code/own1.rs}
 	\vspace{0.6cm}
+	2nd example. Does this compile and why?
 	\inputminted[fontsize=\normalsize]{c}{code/own2.rs}
 \end{frame}
 
@@ -383,7 +401,7 @@ And Rust has a great ecosystem:
 
 \begin{frame}{Guessing game}
 	\framesubtitle{Breaking out of the loop}
-	\inputminted[fontsize=\normalsize]{c}{code/guess6.rs}
+	\inputminted[fontsize=\large]{c}{code/guess6.rs}
 \end{frame}
 
 \begin{frame}{Guessing game}
@@ -392,7 +410,8 @@ And Rust has a great ecosystem:
 \end{frame}
 
 \begin{frame}{More on cargo}
-	\inputminted[fontsize=\normalsize]{shell}{code/cargo.sh}
+	\inputminted[fontsize=\large]{shell}{code/cargo.sh}
+	\vspace{0.5cm}
 \end{frame}
 
 \framepic{graphics/1.jpg}{
