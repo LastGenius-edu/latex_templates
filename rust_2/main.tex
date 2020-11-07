@@ -56,7 +56,66 @@
 \tableofcontents
 \end{frame}
 
-\framepic{graphics/1.jpg}{
+\framepic{graphics/2.jpg}{
+ \textcolor{ucuwhite}{Rust principles}
+ \vskip 0.5cm
+ }
+
+\section{Rust principles}
+\begin{frame}{Rust principles}
+\framesubtitle{Expressions and statements}
+\large{\textcolor{ucuyellow}{Rust is primarily an expression language.\\}}
+\vspace{0.5cm}
+\normalsize
+Essentially: Expressions evaluate to a value, and\\
+return that value. Statements do not.
+\vspace{0.5cm}
+\inputminted[fontsize=\large]{rust}{code/expression1.rs}
+\end{frame}
+
+\begin{frame}{Rust principles}
+\framesubtitle{Expressions and statements}
+\normalsize
+Function bodies are made up of a series of statements, \\
+optionally ending in an expression.
+
+\vspace{0.5cm}
+Expressions do not include ending semicolons.\\
+
+\vspace{0.5cm}
+If you add a semicolon to the end of an expression, you turn \\
+it into a statement, which will then not return a value.\\
+If a function ends in an expression, it returns the value of\\
+that expression.
+\vspace{0.5cm}
+\inputminted[fontsize=\large]{rust}{code/expression2.rs}
+\end{frame}
+
+\begin{frame}{Rust principles}
+\framesubtitle{Common expression usage}
+Scopes return values:\\
+(Rust returns \textcolor{ucuyellow}{( )} if nothing is returned, it's like None)
+\inputminted[fontsize=\large]{rust}{code/expression3.rs}
+\vspace{0.5cm}
+'If' is also an expression:
+\inputminted[fontsize=\large]{rust}{code/expression4.rs}
+\vspace{0.5cm}
+We can use this with a lot of constructs in Rust 
+(\textcolor{ucuyellow}{match}, for example)
+\end{frame}
+
+\begin{frame}{Rust principles}
+\framesubtitle{Algebraic data types and match expressions}
+\footnotesize
+Rust uses an interesting concept of algebraic \\
+data types, which can hold a few types of values.\\ 
+An example of this is an \textcolor{ucuyellow}{std::Option}:\\
+\vspace{0.2cm}
+\inputminted[fontsize=\normalsize]{rust}{code/option.rs}
+\vspace{0.4cm}
+\end{frame}
+
+\framepic{graphics/2.jpg}{
  \textcolor{ucuwhite}{Error Handling}
  \vskip 0.5cm
  }
@@ -64,32 +123,166 @@
 \section{Error Handling}
 
 \begin{frame}{Error handling methods}
-
-\inputminted[fontsize=\large]{c}{code/error1.rs}
-
-If you can recover from an error, use an algebraic\\
-type Result<T, E>, which can either be\\
-Ok(value of type T) or Err(value of type E)
-\inputminted[fontsize=\large]{c}{code/error2.rs}
+	\framesubtitle{Panic}
+\large
+If you can't recover from an error, just \textcolor{ucuyellow}{panic!}\\
+(not irl though)
+\vspace{0.9cm}
+\inputminted[fontsize=\large]{rust}{code/error1.rs}
 \normalsize
-
-\vskip 0.8cm
-
 \end{frame}
 
-\begin{frame}{Memory layout} 
-\inputminted[fontsize=\large]{c}{code/stack.c}
+\begin{frame}{Error handling methods}
+\framesubtitle{Working with the result}
+
+\normalsize
+If you can recover from an error, use an algebraic\\
+type \textcolor{ucuyellow}{Result<T, E>}, which can either be an\\
+\textcolor{ucuyellow}{Ok(value of type T)} or \textcolor{ucuyellow}{Err(value of type E)}
+\vspace{0.2cm}
+\inputminted[fontsize=\normalsize]{rust}{code/error2.rs}
+\vspace{0.55cm}
 \end{frame}
 
-\begin{frame}{Memory layout} 
+\begin{frame}{Error handling methods}
+\framesubtitle{Shorthands and syntactic sugar}
 
-\begin{figure}[ht]
-	\includegraphics[width=0.4\textwidth]{graphics/stack1.png}
-  \hfill
-	\includegraphics[width=0.4\textwidth]{graphics/stack2.png}
-	\hfill
-\end{figure}
-	
+\normalsize
+\inputminted[fontsize=\large]{rust}{code/error3.rs}
+\end{frame}
+
+\begin{frame}{Error handling methods}
+\framesubtitle{Question mark operator}
+
+\inputminted[fontsize=\normalsize]{rust}{code/error4.rs}
+\vspace{0.5cm}
+\inputminted[fontsize=\normalsize]{rust}{code/error5.rs}
+\end{frame}
+
+\framepic{graphics/2.jpg}{
+ \textcolor{ucuwhite}{Rust basics}
+ \vskip 0.5cm
+ }
+
+\section{Rust basics}
+\begin{frame}{Rust primitive types} 
+\centering
+\large
+Integer types
+\begin{table}[]
+\begin{tabular}{lll}
+Length  & Signed & Unsigned \\
+8-bit   & i8     & u8       \\
+16-bit  & i16    & u16      \\
+32-bit  & i32    & u32      \\
+64-bit  & i64    & u64      \\
+128-bit & i128   & u128     \\
+arch    & isize  & usize   
+\end{tabular}
+\end{table}
+\vspace{0.5cm}
+There are also two floating point types:
+\textcolor{ucuyellow}{f32} and \textcolor{ucuyellow}{f64}.\\
+And \textcolor{ucuyellow}{bool}, \textcolor{ucuyellow}{char} types.
+\end{frame}
+
+\begin{frame}{Rust compound types}
+\framesubtitle{Tuples}
+Tuple groups together a number of values with different\\
+types into one compound type. Tuples have a fixed length.\\
+\vspace{0.2cm}
+\inputminted[fontsize=\large]{rust}{code/tuple.rs}
+\vspace{0.5cm}
+\end{frame}
+
+\begin{frame}{Rust compound types}
+\framesubtitle{Arrays}
+Arrays are a collection of elements of the same type,\\
+with a fixed length, allocated on the stack.
+\vspace{0.2cm}
+\inputminted[fontsize=\large]{rust}{code/array.rs}
+\vspace{0.5cm}
+\end{frame}
+
+\begin{frame}{Functions}
+\large
+An example of a function with parameters and a return type:
+\vspace{0.2cm}
+\inputminted[fontsize=\large]{rust}{code/function.rs}
+\vspace{0.5cm}
+\end{frame}
+
+\begin{frame}{Control flow}
+\large
+\inputminted[fontsize=\footnotesize]{rust}{code/control.rs}
+\vspace{0.5cm}
+\vspace{0.2cm}
+\end{frame}
+
+\framepic{graphics/2.jpg}{
+ \textcolor{ucuwhite}{Practice - Linked list}
+ \vskip 0.5cm
+}
+
+\section{Practice - Linked list}
+
+\begin{frame}{Practice}
+\normalsize
+Let's implement a basic LinkedList which is going to\\
+hold \textcolor{ucuyellow}{u32}s!
+\vspace{0.2cm}
+
+It's going to be stack-based (LIFO), so we'd have\\
+constant-time insertion and deletion.
+\vspace{0.2cm}
+
+Fair Warning: This is going to require some change of thinking!
+\end{frame}
+
+\begin{frame}{Practice}
+\framesubtitle{Node and heap}
+The most basic C/C++ implementation of a node\\
+consists of a value and a pointer to a chunk of\\
+heap memory with the next node or None.
+\vspace{0.2cm}
+\inputminted[fontsize=\large]{rust}{code/list1.rs}
+\end{frame}
+
+\begin{frame}{Practice}
+\framesubtitle{Node and heap}
+The most basic C/C++ implementation of a node\\
+consists of a value and a pointer to a chunk of\\
+heap memory with the next node or None.\\
+\vspace{0.2cm}
+\textcolor{ucuyellow}{None????? Are you crazy, this is Rust!}
+\vspace{0.2cm}
+\inputminted[fontsize=\large]{rust}{code/list2.rs}
+\end{frame}
+
+\begin{frame}{Practice}
+\framesubtitle{Linked list}
+\inputminted[fontsize=\normalsize]{rust}{code/list3.rs}
+\vspace{0.5cm}
+\inputminted[fontsize=\normalsize]{rust}{code/list4.rs}
+\end{frame}
+
+\begin{frame}{Practice}
+\framesubtitle{Some more functions}
+\inputminted[fontsize=\normalsize]{rust}{code/list5.rs}
+\end{frame}
+
+\begin{frame}{Practice}
+	\framesubtitle{Push and ownership}
+\inputminted[fontsize=\normalsize]{rust}{code/list6.rs}
+\vspace{0.5cm}
+\inputminted[fontsize=\normalsize]{rust}{code/list7.rs}
+\end{frame}
+
+\begin{frame}{Practice}
+	\framesubtitle{Pop, display}
+\inputminted[fontsize=\footnotesize]{rust}{code/list8.rs}
+\vspace{0.2cm}
+\inputminted[fontsize=\footnotesize]{rust}{code/list9.rs}
 \end{frame}
 
 \end{document}

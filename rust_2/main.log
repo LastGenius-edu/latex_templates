@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.10.29)  4 NOV 2020 18:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.10.29)  7 NOV 2020 16:40
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1656,12 +1656,12 @@ LaTeX Font Info:    Font shape `T1/Montserrat-LF/semibold/n' will be
 (Font)              scaled to size 10.0pt on input line 53.
 LaTeX Font Info:    Font shape `T1/Montserrat-LF/medium/n' will be
 (Font)              scaled to size 24.88pt on input line 53.
-<graphics/1.jpg, id=33, 3240.105pt x 3256.165pt>
-File: graphics/1.jpg Graphic file (type jpg)
-<use graphics/1.jpg>
-Package pdftex.def Info: graphics/1.jpg  used on input line 53.
-(pdftex.def)             Requested size: 455.24408pt x 457.4996pt.
-<graphics/logo-apps-new.png, id=34, 667.49374pt x 601.24625pt>
+<graphics/5.jpg, id=29, 3904.5875pt x 2927.93875pt>
+File: graphics/5.jpg Graphic file (type jpg)
+<use graphics/5.jpg>
+Package pdftex.def Info: graphics/5.jpg  used on input line 53.
+(pdftex.def)             Requested size: 455.24408pt x 341.37459pt.
+<graphics/logo-apps-new.png, id=30, 667.49374pt x 601.24625pt>
 File: graphics/logo-apps-new.png Graphic file (type png)
 <use graphics/logo-apps-new.png>
 Package pdftex.def Info: graphics/logo-apps-new.png  used on input line 53.
@@ -1670,7 +1670,7 @@ LaTeX Font Info:    Font shape `T1/Montserrat-LF/medium/n' will be
 (Font)              scaled to size 4.0pt on input line 53.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./graphics/1.jpg> <./graph
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./graphics/5.jpg> <./graph
 ics/logo-apps-new.png>] (./main.toc
 LaTeX Font Info:    Font shape `T1/Montserrat-LF/medium/n' will be
 (Font)              scaled to size 9.0pt on input line 3.
@@ -1689,222 +1689,301 @@ LaTeX Font Info:    Font shape `T1/Montserrat-LF/medium/n' will be
 ]
 LaTeX Font Info:    Font shape `T1/Montserrat-LF/medium/n' will be
 (Font)              scaled to size 20.74pt on input line 62.
-File: graphics/1.jpg Graphic file (type jpg)
-<use graphics/1.jpg>
-Package pdftex.def Info: graphics/1.jpg  used on input line 62.
-(pdftex.def)             Requested size: 254.7641pt x 256.0748pt.
+<graphics/2.jpg, id=55, 2392.94pt x 1802.735pt>
+File: graphics/2.jpg Graphic file (type jpg)
+<use graphics/2.jpg>
+Package pdftex.def Info: graphics/2.jpg  used on input line 62.
+(pdftex.def)             Requested size: 339.9021pt x 256.0748pt.
  [3
 
-] (./_minted-main/default-pyg-prefix.pygstyle)
-(./_minted-main/monokai.pygstyle)
-runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
-d-main/318BDB16BB24193F6CC620FAD4D695CF42253A264089487833327F8FBC5A291A.pygtex 
-code/error1.rs)...executed.
-
-
-(./_minted-main/318BDB16BB24193F6CC620FAD4D695CF42253A264089487833327F8FBC5A291
-A.pygtex
+ <./graphics/2.jpg>]
 LaTeX Font Info:    Font shape `T1/Montserrat-LF/medium/n' will be
-(Font)              scaled to size 12.0pt on input line 1.
+(Font)              scaled to size 12.0pt on input line 74.
+ (./_minted-main/default-pyg-prefix.pygstyle)
+(./_minted-main/monokai.pygstyle)
+(./_minted-main/22B9313576914762989C0CFBF863A3D7BAB7B2A7D1A0213ADAF806523F4BE44
+F.pygtex
 LaTeX Font Info:    Trying to load font information for T1+lmvtt on input line 
 1.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmvtt.fd
 File: t1lmvtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ))
-runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
-d-main/9E2AC22F5F82E05E39E895909FE3DA13.pygtex code/error2.rs)...executed.
-
-
-
-! Package minted Error: Missing Pygments output; \inputminted was
-probably given a file that does not exist--otherwise, you may need 
-the outputdir package option, or may be using an incompatible build tool,
-or may be using frozencache with a missing file.
-
-See the minted package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.78 \end{frame}
-                
-? q
-OK, entering \batchmode...
-
-Overfull \hbox (56.90549pt too wide) in paragraph at lines 78--78
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 74--74
 [][]  
  []
 
- [4
+[4
 
 ]
-runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
-d-main/F01132304180BB6F9CD0D1ADE06ECBC4.pygtex code/stack.c)...executed.
-
-
-! Package minted Error: Missing Pygments output; \inputminted was
-probably given a file that does not exist--otherwise, you may need 
-the outputdir package option, or may be using an incompatible build tool,
-or may be using frozencache with a missing file.
-
-See the minted package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.82 \end{frame}
-                
-This could be caused by using -output-directory or -aux-directory 
-without setting minted's outputdir, or by using a build tool that 
-changes paths in ways minted cannot detect, 
-or using frozencache with a missing file.
-
-
-Overfull \hbox (56.90549pt too wide) in paragraph at lines 82--82
+(./_minted-main/E3EA630261B8437658BF4D67FD783CAD12B46C95C21DBC5FEF7F18CAD9855D3
+7.pygtex)
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 92--92
 [][]  
  []
 
- [5
+[5
 
 ]
-<graphics/stack1.png, id=78, 384.43625pt x 405.515pt>
-File: graphics/stack1.png Graphic file (type png)
-<use graphics/stack1.png>
-Package pdftex.def Info: graphics/stack1.png  used on input line 93.
-(pdftex.def)             Requested size: 159.333pt x 168.06902pt.
-<graphics/stack2.png, id=79, 384.43625pt x 405.515pt>
-File: graphics/stack2.png Graphic file (type png)
-<use graphics/stack2.png>
-Package pdftex.def Info: graphics/stack2.png  used on input line 93.
-(pdftex.def)             Requested size: 159.333pt x 168.06902pt.
-
-Overfull \hbox (56.90549pt too wide) in paragraph at lines 93--93
+(./_minted-main/B7223F159F9AC76908FEADCA17A93DA78F30CD4023B7AC9712C076D37B45FA5
+5.pygtex)
+(./_minted-main/1F1BC0C5FC7774A705572F0A912ABB1291E78A30712D1F37AE04503311C0FAC
+8.pygtex)
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 105--105
 [][]  
  []
 
- [6
+[6
 
- <./graphics/stack1.png> <./graphics/stack2.png>]
+]
+(./_minted-main/858F130ED4B168E1C6E9E6F6A82A3117FA18BAD1A94E0C54510E76BE3BD6DCC
+9.pygtex)
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 116--116
+[][]  
+ []
+
+[7
+
+]
+File: graphics/2.jpg Graphic file (type jpg)
+<use graphics/2.jpg>
+Package pdftex.def Info: graphics/2.jpg  used on input line 121.
+(pdftex.def)             Requested size: 339.9021pt x 256.0748pt.
+ [8
+
+]
+(./_minted-main/318BDB16BB24193F6CC620FAD4D695CFE5F268C4AE8B074D096F2FB4142B0BB
+3.pygtex)
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 133--133
+[][]  
+ []
+
+[9
+
+]
+(./_minted-main/A31995AB37EE99710D55E680B164864919C1290B53AC7D937414B53E7BB988F
+A.pygtex
+LaTeX Font Info:    Trying to load font information for TS1+lmvtt on input line
+ 2.
+ (/usr/share/texmf-dist/tex/latex/lm/ts1lmvtt.fd
+File: ts1lmvtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+))
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 145--145
+[][]  
+ []
+
+
+Overfull \vbox (7.05081pt too high) detected at line 145
+ []
+
+[10
+
+]
+(./_minted-main/973A2B50F1E1A6FFAF9C4E142D29FE396326A7484748555AFA1035C2B845B2B
+D.pygtex)
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 152--152
+[][]  
+ []
+
+[11
+
+]
+(./_minted-main/7317E8257B40594E50538FB7CB1AD52424B237C01A083BFE2C650614BBFCE6A
+A.pygtex)
+(./_minted-main/0B3D50070582E563B31631E5DCBA0ACA40E3AFED9DFC635DE3AA2A56BC3E126
+D.pygtex)
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 160--160
+[][]  
+ []
+
+[12
+
+]
+File: graphics/2.jpg Graphic file (type jpg)
+<use graphics/2.jpg>
+Package pdftex.def Info: graphics/2.jpg  used on input line 165.
+(pdftex.def)             Requested size: 339.9021pt x 256.0748pt.
+ [13
+
+]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 187
+.
+ (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 187
+.
+
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 
+187.
+
+(/usr/share/texmf-dist/tex/latex/newtx/untxmia.fd
+File: untxmia.fd 2018/04/14 Fontinst v1.933 font definitions for U/ntxmia.
+)
+LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 
+187.
+
+(/usr/share/texmf-dist/tex/latex/newtx/untxsym.fd
+File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
+)
+LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 
+187.
+
+(/usr/share/texmf-dist/tex/latex/newtx/untxsyc.fd
+File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
+)
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 187--187
+[][]  
+ []
+
+[14
+
+]
+(./_minted-main/C020CF2D0D6BFFF761B995C97B6BBF8285783BB157B7A44BD6755EC256C5181
+7.pygtex)
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 196--196
+[][]  
+ []
+
+[15
+
+]
+(./_minted-main/3226F140D3A9CA7F9993F3A51ED38331ED540D374F45F689888EAB83B01FB56
+D.pygtex)
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 205--205
+[][]  
+ []
+
+[16
+
+]
+(./_minted-main/C35858243763188CF6167C2FFE378462463230E4B2CC4C8D547F3C69F733BE4
+D.pygtex)
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 213--213
+[][]  
+ []
+
+[17
+
+]
+(./_minted-main/7CFB3E4BC9EF2860D28E54ECC429C559EC2D7E4AD8F2D3E92555CA61D0EB743
+4.pygtex)
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 220--220
+[][]  
+ []
+
+
+Overfull \vbox (10.46141pt too high) detected at line 220
+ []
+
+[18
+
+]
+File: graphics/2.jpg Graphic file (type jpg)
+<use graphics/2.jpg>
+Package pdftex.def Info: graphics/2.jpg  used on input line 225.
+(pdftex.def)             Requested size: 339.9021pt x 256.0748pt.
+ [19
+
+]
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 240--240
+[][]  
+ []
+
+[20
+
+]
+(./_minted-main/2C1CFB59E5E93A8C25369D94AFF6715A1CEA9A8EB86E83EB737BD2CDBF94FC5
+6.pygtex)
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 249--249
+[][]  
+ []
+
+[21
+
+]
+(./_minted-main/142E8079B23D85C78A08BC907CE4A3F96C1FD7AD79110293F00E8249BC27750
+1.pygtex)
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 260--260
+[][]  
+ []
+
+[22
+
+]
+(./_minted-main/FEDD38824701F7FB98BAF98BD7B43009E36119D50B70E24E779DC103B4E513E
+4.pygtex)
+(./_minted-main/3642DD5070A3A68575BD3C0126EA3EBDCAEA41C58FC0A032676023571D11E2F
+2.pygtex)
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 267--267
+[][]  
+ []
+
+[23
+
+]
+(./_minted-main/293EF849915B0A5243EE20C22291F98841AC3C14D7E1552938C2240A5E8E9CA
+4.pygtex)
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 272--272
+[][]  
+ []
+
+[24
+
+]
+(./_minted-main/4F5720EDC9CBFBC49F9704CF3B8DE0B5D6C7F633998E79501476219909062C1
+3.pygtex)
+(./_minted-main/5F3292358705FC3D939101FE49FE0A79B5C9E83CF2F96DA3C66C9E47836DE9F
+B.pygtex)
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 279--279
+[][]  
+ []
+
+[25
+
+]
+(./_minted-main/E10FB27D01CAB2E2653693A8DEB5ABE93D7A758197E7A9AB4DA6DD1B40FD9A1
+3.pygtex)
+(./_minted-main/E97137E6673B029625A6BDA700B5F50BD8B1F27FC71C955E9DF9AF461F47DEE
+5.pygtex)
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 286--286
+[][]  
+ []
+
+[26
+
+]
 \tf@nav=\write9
 \tf@toc=\write10
 \tf@snm=\write11
-runsystem(rm _minted-main/6BA9CBAD7D04AF21ADF8E4761695AD8BF01132304180BB6F9CD0D
-1ADE06ECBC4.pygtex)...executed.
-
-runsystem(rm _minted-main/1D20B218DCDED846353FFAB312D5698880C530DEFDD4764910F0A
-FFF4F081515.pygtex)...executed.
-
-runsystem(rm _minted-main/D055D5D9D30CE8F17DE1618FC498005C25FF879EC163DE41F2F08
-E7A38AF52D6.pygtex)...executed.
-
-runsystem(rm _minted-main/7D669BBBDA367EF9D5B4B5ED06A437A2EF2FA686495E8F5D352DF
-D7F966BFF20.pygtex)...executed.
-
-runsystem(rm _minted-main/3CCEF1FF1873E7BD3C1FF521EBC38CD00173CAAD6B3950A089537
-D5EFA0F7857.pygtex)...executed.
-
-runsystem(rm _minted-main/468121BD89BBB763C6554A611EED70A985B903A7FF4153533B2F4
-12B3EE49E1B.pygtex)...executed.
-
-runsystem(rm _minted-main/B64ABCB167A8B9DD4F282813C31AD0DA390E080E4FB722D6A98E8
-4AF239CBB6F.pygtex)...executed.
-
-runsystem(rm _minted-main/78601884522743C76CE280A934D7F31E15FC61358BDFB1C7E738D
-16F77C54840.pygtex)...executed.
-
-runsystem(rm _minted-main/E07F76A6ACE9C5A9609B54CBFFFC91C67CD129AFA2F3E924527C6
-3811B259665.pygtex)...executed.
-
-runsystem(rm _minted-main/1BE69F9A4B55120B728A432E6E65835BF55780E280AFB84891443
-1283279B8D6.pygtex)...executed.
-
-runsystem(rm _minted-main/8EDFD70078E647960E038660EAFDFAA8B5AA143E61A150E16EDFE
-659C22E41A9.pygtex)...executed.
-
-runsystem(rm _minted-main/F7F3BF68B934CC9BA071A3F2D50B589DFE283A2581323037C316A
-4704EDBE99C.pygtex)...executed.
-
-runsystem(rm _minted-main/E21F9EA04C6486E44C001B485AA6FEC9DF116074E44489D016603
-13EF2B64B05.pygtex)...executed.
-
-runsystem(rm _minted-main/DC5A8B429C64447923195D77C3F87B76DE76B676A5895F027C847
-9269C448A50.pygtex)...executed.
-
-runsystem(rm _minted-main/003994F3DBF9BA915AE1BDD5A5CACE57666E98FE4A33352B06FD4
-E6DACC2F401.pygtex)...executed.
-
-runsystem(rm _minted-main/24D5F30794BA6FBF3462424940ACCA6461D4C3B6F8C0AF51EC89F
-1B1005FF58D.pygtex)...executed.
-
-runsystem(rm _minted-main/22BCCC5650D7DFFB7177475A09794FB24FD98479519FD337A3DB1
-CCA18288C05.pygtex)...executed.
-
-runsystem(rm _minted-main/AA440720AC29F3E33C7CF7815B78F01A8B278924CB2B8A04523E2
-2C450F8EA42.pygtex)...executed.
-
-runsystem(rm _minted-main/0321254C735C8BAF9E2AB3A3161F5C7B6B3EEA2693541CBADD290
-994A7382692.pygtex)...executed.
-
-runsystem(rm _minted-main/826B0196824165C374F46869A4D07F2AC615CF5DCFAC40B0E3C95
-4DBE6775BC0.pygtex)...executed.
-
-runsystem(rm _minted-main/1AC2D27F822B05D98FF66AD0C91D249C636CE7A8A556740AC7B8D
-3A2545A813A.pygtex)...executed.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 95.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 95.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 288.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 288.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 95.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 95.
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: CDB9B3A8AC2C6252AA6EC269FF3776A7;327
-(rerunfilecheck)             After:  31AEB957A7278DAC20F26853E87E389E;49.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 288.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 288.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 5F665BBB66BBF44436513BF9BC338422;202.
 Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 33660 strings out of 480478
- 648118 string characters out of 5905958
- 1310336 words of memory out of 5000000
- 48921 multiletter control sequences out of 15000+600000
- 696686 words of font info for 46 fonts, out of 8000000 for 9000
+ 33871 strings out of 480478
+ 657611 string characters out of 5905958
+ 1312412 words of memory out of 5000000
+ 49020 multiletter control sequences out of 15000+600000
+ 714426 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,13n,78p,771b,954s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Navigation27} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Navigation24} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{Navigation17} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{Navigation8} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.5} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.4} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.3} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.2} has been referenced but does not exist,
- replaced by a fixed one
-
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/font
-s/enc/dvips/montserrat/zmo_umrhwx.enc}</usr/share/texmf-dist/fonts/type1/public
-/montserrat/Montserrat-Medium.pfb></usr/share/texmf-dist/fonts/type1/public/mon
-tserrat/Montserrat-SemiBold.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lm
-vtt10.pfb>
-Output written on main.pdf (6 pages, 1491205 bytes).
+ 60i,13n,78p,771b,959s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf-dist/f
+onts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fonts/enc/dvips/montserrat/z
+mo_umrhwx.enc}</usr/share/texmf-dist/fonts/type1/public/montserrat/Montserrat-M
+edium.pfb></usr/share/texmf-dist/fonts/type1/public/montserrat/Montserrat-SemiB
+old.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmvtt10.pfb>
+Output written on main.pdf (26 pages, 3296075 bytes).
 PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
- 83 compressed objects within 1 object stream
- 22 named destinations out of 1000 (max. 500000)
- 103 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 230 PDF objects out of 1000 (max. 8388607)
+ 187 compressed objects within 2 object streams
+ 57 named destinations out of 1000 (max. 500000)
+ 90 words of extra memory for PDF output out of 10000 (max. 10000000)
 
