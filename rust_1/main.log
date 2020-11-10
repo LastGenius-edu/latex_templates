@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.10.29)  4 NOV 2020 19:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.10.29)  10 NOV 2020 02:04
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1739,11 +1739,6 @@ Package pdftex.def Info: graphics/1.jpg  used on input line 125.
 
 ] (./_minted-main/default-pyg-prefix.pygstyle)
 (./_minted-main/monokai.pygstyle)
-runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
-d-main/6BA9CBAD7D04AF21ADF8E4761695AD8BF01132304180BB6F9CD0D1ADE06ECBC4.pygtex 
-code/stack.c)...executed.
-
-
 (./_minted-main/6BA9CBAD7D04AF21ADF8E4761695AD8BF01132304180BB6F9CD0D1ADE06ECBC
 4.pygtex
 LaTeX Font Info:    Trying to load font information for T1+lmvtt on input line 
@@ -1776,11 +1771,6 @@ Overfull \hbox (56.90549pt too wide) in paragraph at lines 142--142
 [9
 
  <./graphics/stack1.png> <./graphics/stack2.png>]
-runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
-d-main/1D20B218DCDED846353FFAB312D5698880C530DEFDD4764910F0AFFF4F081515.pygtex 
-code/overflow.c)...executed.
-
-
 (./_minted-main/1D20B218DCDED846353FFAB312D5698880C530DEFDD4764910F0AFFF4F08151
 5.pygtex)
 Overfull \hbox (56.90549pt too wide) in paragraph at lines 146--146
@@ -1790,11 +1780,6 @@ Overfull \hbox (56.90549pt too wide) in paragraph at lines 146--146
 [10
 
 ]
-runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
-d-main/D055D5D9D30CE8F17DE1618FC498005C25FF879EC163DE41F2F08E7A38AF52D6.pygtex 
-code/nullp.c)...executed.
-
-
 (./_minted-main/D055D5D9D30CE8F17DE1618FC498005C25FF879EC163DE41F2F08E7A38AF52D
 6.pygtex
 LaTeX Font Info:    Trying to load font information for TS1+lmvtt on input line
@@ -1809,11 +1794,6 @@ Overfull \hbox (56.90549pt too wide) in paragraph at lines 150--150
 [11
 
 ]
-runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
-d-main/7D669BBBDA367EF9D5B4B5ED06A437A2EF2FA686495E8F5D352DFD7F966BFF20.pygtex 
-code/danp.c)...executed.
-
-
 (./_minted-main/7D669BBBDA367EF9D5B4B5ED06A437A2EF2FA686495E8F5D352DFD7F966BFF2
 0.pygtex)
 Overfull \hbox (56.90549pt too wide) in paragraph at lines 154--154
@@ -1823,11 +1803,6 @@ Overfull \hbox (56.90549pt too wide) in paragraph at lines 154--154
 [12
 
 ]
-runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
-d-main/3CCEF1FF1873E7BD3C1FF521EBC38CD00173CAAD6B3950A089537D5EFA0F7857.pygtex 
-code/iter.c)...executed.
-
-
 (./_minted-main/3CCEF1FF1873E7BD3C1FF521EBC38CD00173CAAD6B3950A089537D5EFA0F785
 7.pygtex)
 Overfull \hbox (56.90549pt too wide) in paragraph at lines 158--158
@@ -1837,11 +1812,6 @@ Overfull \hbox (56.90549pt too wide) in paragraph at lines 158--158
 [13
 
 ]
-runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
-d-main/468121BD89BBB763C6554A611EED70A985B903A7FF4153533B2F412B3EE49E1B.pygtex 
-code/errorcheck.c)...executed.
-
-
 (./_minted-main/468121BD89BBB763C6554A611EED70A985B903A7FF4153533B2F412B3EE49E1
 B.pygtex)
 Overfull \hbox (56.90549pt too wide) in paragraph at lines 162--162
@@ -1951,18 +1921,8 @@ Package pdftex.def Info: graphics/1.jpg  used on input line 291.
  [23
 
 ]
-runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
-d-main/B64ABCB167A8B9DD4F282813C31AD0DA390E080E4FB722D6A98E84AF239CBB6F.pygtex 
-code/helloworld.rs)...executed.
-
-
 (./_minted-main/B64ABCB167A8B9DD4F282813C31AD0DA390E080E4FB722D6A98E84AF239CBB6
 F.pygtex)
-runsystem(pygmentize -l bash -f latex -P commandprefix=PYG -F tokenmerge -o _mi
-nted-main/78601884522743C76CE280A934D7F31E15FC61358BDFB1C7E738D16F77C54840.pygt
-ex code/helloworld.sh)...executed.
-
-
 (./_minted-main/78601884522743C76CE280A934D7F31E15FC61358BDFB1C7E738D16F77C5484
 0.pygtex)
 Overfull \hbox (56.90549pt too wide) in paragraph at lines 305--305
@@ -1972,11 +1932,6 @@ Overfull \hbox (56.90549pt too wide) in paragraph at lines 305--305
 [24
 
 ]
-runsystem(pygmentize -l bash -f latex -P commandprefix=PYG -F tokenmerge -o _mi
-nted-main/E07F76A6ACE9C5A9609B54CBFFFC91C67CD129AFA2F3E924527C63811B259665.pygt
-ex code/hellocargo.sh)...executed.
-
-
 (./_minted-main/E07F76A6ACE9C5A9609B54CBFFFC91C67CD129AFA2F3E924527C63811B25966
 5.pygtex)
 Overfull \hbox (56.90549pt too wide) in paragraph at lines 311--311
@@ -1993,11 +1948,6 @@ Package pdftex.def Info: graphics/1.jpg  used on input line 316.
  [26
 
 ]
-runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
-d-main/1BE69F9A4B55120B728A432E6E65835BF55780E280AFB848914431283279B8D6.pygtex 
-code/guess1.rs)...executed.
-
-
 (./_minted-main/1BE69F9A4B55120B728A432E6E65835BF55780E280AFB848914431283279B8D
 6.pygtex)
 Overfull \hbox (56.90549pt too wide) in paragraph at lines 326--326
@@ -2007,11 +1957,6 @@ Overfull \hbox (56.90549pt too wide) in paragraph at lines 326--326
 [27
 
 ]
-runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
-d-main/8EDFD70078E647960E038660EAFDFAA8B5AA143E61A150E16EDFE659C22E41A9.pygtex 
-code/toml1.toml)...executed.
-
-
 (./_minted-main/8EDFD70078E647960E038660EAFDFAA8B5AA143E61A150E16EDFE659C22E41A
 9.pygtex)
 Overfull \hbox (56.90549pt too wide) in paragraph at lines 338--338
@@ -2021,11 +1966,6 @@ Overfull \hbox (56.90549pt too wide) in paragraph at lines 338--338
 [28
 
 ]
-runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
-d-main/F7F3BF68B934CC9BA071A3F2D50B589DFE283A2581323037C316A4704EDBE99C.pygtex 
-code/guess2.rs)...executed.
-
-
 (./_minted-main/F7F3BF68B934CC9BA071A3F2D50B589DFE283A2581323037C316A4704EDBE99
 C.pygtex)
 Overfull \hbox (56.90549pt too wide) in paragraph at lines 343--343
@@ -2035,11 +1975,6 @@ Overfull \hbox (56.90549pt too wide) in paragraph at lines 343--343
 [29
 
 ]
-runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
-d-main/E21F9EA04C6486E44C001B485AA6FEC9DF116074E44489D01660313EF2B64B05.pygtex 
-code/guess3.rs)...executed.
-
-
 (./_minted-main/E21F9EA04C6486E44C001B485AA6FEC9DF116074E44489D01660313EF2B64B0
 5.pygtex)
 Overfull \hbox (56.90549pt too wide) in paragraph at lines 349--349
@@ -2049,11 +1984,6 @@ Overfull \hbox (56.90549pt too wide) in paragraph at lines 349--349
 [30
 
 ]
-runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
-d-main/DC5A8B429C64447923195D77C3F87B76DE76B676A5895F027C8479269C448A50.pygtex 
-code/guess4.rs)...executed.
-
-
 (./_minted-main/DC5A8B429C64447923195D77C3F87B76DE76B676A5895F027C8479269C448A5
 0.pygtex)
 Overfull \hbox (56.90549pt too wide) in paragraph at lines 355--355
@@ -2070,18 +2000,8 @@ Overfull \hbox (56.90549pt too wide) in paragraph at lines 381--381
 [32
 
 ]
-runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
-d-main/003994F3DBF9BA915AE1BDD5A5CACE57666E98FE4A33352B06FD4E6DACC2F401.pygtex 
-code/own1.rs)...executed.
-
-
 (./_minted-main/003994F3DBF9BA915AE1BDD5A5CACE57666E98FE4A33352B06FD4E6DACC2F40
 1.pygtex)
-runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
-d-main/24D5F30794BA6FBF3462424940ACCA6461D4C3B6F8C0AF51EC89F1B1005FF58D.pygtex 
-code/own2.rs)...executed.
-
-
 (./_minted-main/24D5F30794BA6FBF3462424940ACCA6461D4C3B6F8C0AF51EC89F1B1005FF58
 D.pygtex)
 Overfull \hbox (56.90549pt too wide) in paragraph at lines 390--390
@@ -2091,11 +2011,6 @@ Overfull \hbox (56.90549pt too wide) in paragraph at lines 390--390
 [33
 
 ]
-runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
-d-main/22BCCC5650D7DFFB7177475A09794FB24FD98479519FD337A3DB1CCA18288C05.pygtex 
-code/own3.rs)...executed.
-
-
 (./_minted-main/22BCCC5650D7DFFB7177475A09794FB24FD98479519FD337A3DB1CCA18288C0
 5.pygtex)
 Overfull \hbox (56.90549pt too wide) in paragraph at lines 395--395
@@ -2105,11 +2020,6 @@ Overfull \hbox (56.90549pt too wide) in paragraph at lines 395--395
 [34
 
 ]
-runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
-d-main/AA440720AC29F3E33C7CF7815B78F01A8B278924CB2B8A04523E22C450F8EA42.pygtex 
-code/guess5.rs)...executed.
-
-
 (./_minted-main/AA440720AC29F3E33C7CF7815B78F01A8B278924CB2B8A04523E22C450F8EA4
 2.pygtex)
 Overfull \hbox (56.90549pt too wide) in paragraph at lines 400--400
@@ -2119,11 +2029,6 @@ Overfull \hbox (56.90549pt too wide) in paragraph at lines 400--400
 [35
 
 ]
-runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
-d-main/0321254C735C8BAF9E2AB3A3161F5C7B6B3EEA2693541CBADD290994A7382692.pygtex 
-code/guess6.rs)...executed.
-
-
 (./_minted-main/0321254C735C8BAF9E2AB3A3161F5C7B6B3EEA2693541CBADD290994A738269
 2.pygtex)
 Overfull \hbox (56.90549pt too wide) in paragraph at lines 405--405
@@ -2133,11 +2038,6 @@ Overfull \hbox (56.90549pt too wide) in paragraph at lines 405--405
 [36
 
 ]
-runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
-d-main/826B0196824165C374F46869A4D07F2AC615CF5DCFAC40B0E3C954DBE6775BC0.pygtex 
-code/guess7.rs)...executed.
-
-
 (./_minted-main/826B0196824165C374F46869A4D07F2AC615CF5DCFAC40B0E3C954DBE6775BC
 0.pygtex)
 Overfull \hbox (56.90549pt too wide) in paragraph at lines 410--410
@@ -2147,11 +2047,6 @@ Overfull \hbox (56.90549pt too wide) in paragraph at lines 410--410
 [37
 
 ]
-runsystem(pygmentize -l shell -f latex -P commandprefix=PYG -F tokenmerge -o _m
-inted-main/1AC2D27F822B05D98FF66AD0C91D249C636CE7A8A556740AC7B8D3A2545A813A.pyg
-tex code/cargo.sh)...executed.
-
-
 (./_minted-main/1AC2D27F822B05D98FF66AD0C91D249C636CE7A8A556740AC7B8D3A2545A813
 A.pygtex)
 Overfull \hbox (56.90549pt too wide) in paragraph at lines 415--415
@@ -2168,7 +2063,7 @@ Package pdftex.def Info: graphics/1.jpg  used on input line 420.
  [39
 
 ]
-Overfull \hbox (56.90549pt too wide) in paragraph at lines 450--450
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 461--461
 [][]  
  []
 
@@ -2178,14 +2073,11 @@ Overfull \hbox (56.90549pt too wide) in paragraph at lines 450--450
 \tf@nav=\write9
 \tf@toc=\write10
 \tf@snm=\write11
-runsystem(rm _minted-main/77CF05F1E6CD1CCFCA360B42AA67159F390E080E4FB722D6A98E8
-4AF239CBB6F.pygtex)...executed.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 452.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 452.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 463.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 463.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 452.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 452.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 463.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 463.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: CDB9B3A8AC2C6252AA6EC269FF3776A7;327.
 
@@ -2196,10 +2088,10 @@ LaTeX Font Warning: Size substitutions with differences
 Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 34086 strings out of 480478
- 661841 string characters out of 5905958
- 1310693 words of memory out of 5000000
- 49180 multiletter control sequences out of 15000+600000
+ 34044 strings out of 480478
+ 660013 string characters out of 5905958
+ 1311332 words of memory out of 5000000
+ 49159 multiletter control sequences out of 15000+600000
  748906 words of font info for 124 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,13n,78p,771b,954s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2209,10 +2101,10 @@ mo_umrhwx.enc}</usr/share/texmf-dist/fonts/type1/public/montserrat/Montserrat-M
 edium.pfb></usr/share/texmf-dist/fonts/type1/public/montserrat/Montserrat-SemiB
 old.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmvtt10.pfb></usr/share/te
 xmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (40 pages, 1557797 bytes).
+Output written on main.pdf (40 pages, 1558257 bytes).
 PDF statistics:
- 347 PDF objects out of 1000 (max. 8388607)
- 284 compressed objects within 3 object streams
+ 348 PDF objects out of 1000 (max. 8388607)
+ 285 compressed objects within 3 object streams
  86 named destinations out of 1000 (max. 500000)
  108 words of extra memory for PDF output out of 10000 (max. 10000000)
 
