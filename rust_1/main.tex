@@ -45,8 +45,7 @@
 \renewcommand{\proofname}{\sffamily{Proof}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title[Rust \#1]{Rust \#1: Motivation and Introduction}
-\date[\today]{\small\today}
+\title[Rust \#1]{Rust \#1: Motivation \\ \vspace{0.1cm}and Introduction}
 \author[Sultanov Andriy]{Sultanov Andriy}
 \institute{APPS@UCU}
 
@@ -90,11 +89,31 @@ the most in the short amount of time we have:\\
 \end{frame}
 
 \begin{frame}{Rust doesn't solve all of your problems}
-	Some stuff about how it's important not to burn out.\\
-	Probably should find some articles supporting my point.
-	
-	Moreover, making your software secure is not \\
-	always a good thing!\\
+\large
+While Rust does solve most memory safety issues\\
+(more on this later), most bugs are still caused\\
+by tired and underslept programmers.\\
+\vspace{0.2cm}
+\textcolor{ucuyellow}{Your health is more important than your work.}\\
+\end{frame}
+
+\begin{frame}{Rust doesn't solve all of your problems}
+\large
+\textcolor{ucuyellow}{
+Developing more secure and memory-safe code in\\
+abstract sounds good. But it's not always.\\
+}
+\vspace{0.4cm}
+
+Developing a secure drone strike system won't help anyone.\\
+\vspace{0.2cm}
+
+Secure face recognition system for the police won't help anyone either.\\
+\vspace{0.2cm}
+
+A secure app that serves as a tool to further underpay and\\
+undermine the vulnerable workforce will bring far more trouble\\
+if it's unhackable using simple memory exploits.
 \end{frame}
 
 
@@ -252,7 +271,7 @@ low-levelness,
 	\inputminted[fontsize=\large]{c}{code/danp.c}
 \end{frame}
 
-\begin{frame}{Invalidated iterators} 
+\begin{frame}{Invalidated iterators and double free} 
 	\inputminted[fontsize=\large]{c}{code/iter.c}
 \end{frame}
 
@@ -266,8 +285,6 @@ low-levelness,
 		\item Memory leak - you can forget to free data
 		\item Thread unsafety - another function can be \\
 			modifying the same memory
-		\item Double free - you can free the same memory\\
-			twice (as a part of a struct, for example)
 	\end{itemize}
 \end{frame}
 
