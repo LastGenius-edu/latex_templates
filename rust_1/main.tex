@@ -407,11 +407,11 @@ Rust has a great ecosystem:
 \end{frame}
 
 \framepic{graphics/1.jpg}{
- \textcolor{ucuwhite}{Basic syntax and concepts}
+ \textcolor{ucuwhite}{Basic syntax and ecosystem}
  \vskip 0.5cm
  }
 
-\section{Basic syntax and concepts}
+\section{Basic syntax and ecosystem}
 
 \begin{frame}{Hello world!}
 	\large
@@ -426,17 +426,88 @@ Rust has a great ecosystem:
 \end{frame}
 
 \begin{frame}{Hello cargo!}
-
 	\inputminted[fontsize=\Large]{bash}{code/hellocargo.sh}
-
 \end{frame}
 
 \framepic{graphics/1.jpg}{
-	\textcolor{ucuwhite}{The Rust ecosystem\\ and a little more...}
+	\textcolor{ucuwhite}{Ownership and lifetimes}
  \vskip 0.5cm
  }
 
-\section{The Rust ecosystem and a little more}
+\section{Ownership and lifetimes}
+\begin{frame}{Ownership and lifetimes}
+	\framesubtitle{Abstract}
+	\large
+	How would a safe system look like?\\
+	\vspace{0.4cm}
+	Let's go over a few main points:\\
+	\vspace{0.4cm}
+	\begin{itemize}[label=$\bullet$]
+		\item There can be many readers with no writers at the same time
+		\item There can be only one writer with no readers at the same time
+		\item Values can be used only as long as they still exist
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Ownership and lifetimes}
+	\framesubtitle{General}
+	\large
+	In Rust's terminology, there are two notions of borrowing:
+	\begin{itemize}[label=$\bullet$]
+		\item Shared reference \textcolor{ucuyellow}{\&}
+		\item Mutable reference \textcolor{ucuyellow}{\&mut}
+	\end{itemize}
+
+	\vspace{0.5cm}
+	Rust forces us to abide by the following principles:
+	\begin{itemize}[label=$\bullet$]
+		\item We can have multiple shared (immutable) references\\
+			at once (with no mutable references) to a value.
+		\item We can have only one mutable reference\\
+			at once (no shared references to it)
+		\item A reference cannot outlive its referent
+		\item A mutable reference cannot be aliased\\
+			(You can only move the value to a new owner)
+	\end{itemize}
+	\vspace{0.5cm}
+\end{frame}
+
+\begin{frame}{Ownership and lifetimes}
+	\framesubtitle{General}
+	\large
+	The lifetime of a value starts when it’s created\\
+	and ends the last time it’s used.\\
+	\vspace{0.2cm}
+	Rust computes lifetimes at compile time, we don't\\
+	have to do any allocations and frees, Rust borrows\\
+	and drops memory for us.
+\end{frame}
+ 
+\begin{frame}{Ownership and lifetimes}
+	\framesubtitle{Examples}
+	1st example. Does this compile and why?
+	\inputminted[fontsize=\normalsize]{c}{code/own1.rs}
+	\vspace{0.6cm}
+	2nd example. Does this compile and why?
+	\inputminted[fontsize=\normalsize]{c}{code/own2.rs}
+\end{frame}
+
+\begin{frame}{Ownership and lifetimes}
+	\framesubtitle{Examples}
+	\inputminted[fontsize=\large]{c}{code/own3.rs}
+\end{frame}
+
+\begin{frame}{Ownership and lifetimes}
+	\framesubtitle{Examples}
+	\large
+	\textcolor{ucured}{I've got to add more examples!}
+\end{frame}
+
+\framepic{graphics/1.jpg}{
+	\textcolor{ucuwhite}{A simple practice project}
+ \vskip 0.5cm
+ }
+\section{A simple practice project}
 
 \begin{frame}{Guessing game}
 	\framesubtitle{Basics}
@@ -475,45 +546,6 @@ Rust has a great ecosystem:
 	\inputminted[fontsize=\normalsize]{c}{code/guess4.rs}
 \end{frame}
 
-\begin{frame}{Ownership and lifetimes}
-	\framesubtitle{General}
-	\normalsize
-	Rust enforces its own (rational) system of ownership\\
-	and lifetimes, ensuring a few main points:
-	\begin{itemize}[label=$\bullet$]
-		\item Borrowing
-		\begin{itemize}[label=$\bullet$]
-			\item We can have multiple shared (immutable) references\\
-				at once (with no mutable references) to a value.
-			\item We can have only one mutable reference\\
-				at once (no shared references to it)
-		\end{itemize}
-		\item Lifetimes
-		\begin{itemize}[label=$\bullet$]
-			\item The lifetime of a value starts when it’s created\\
-				and ends the last time it’s used
-			\item Rust doesn’t let you have a reference to a value\\
-				that lasts longer than the value’s lifetime
-			\item Rust computes lifetimes at compile time,\\
-				there are no allocations and frees,\\
-				Rust only borrows and drops memory
-		\end{itemize}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Ownership and lifetimes}
-	\framesubtitle{Examples}
-	1st example. Does this compile and why?
-	\inputminted[fontsize=\normalsize]{c}{code/own1.rs}
-	\vspace{0.6cm}
-	2nd example. Does this compile and why?
-	\inputminted[fontsize=\normalsize]{c}{code/own2.rs}
-\end{frame}
-
-\begin{frame}{Ownership and lifetimes}
-	\framesubtitle{Examples}
-	\inputminted[fontsize=\large]{c}{code/own3.rs}
-\end{frame}
 
 \begin{frame}{Guessing game}
 	\framesubtitle{Looping}
