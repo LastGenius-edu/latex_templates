@@ -1,6 +1,9 @@
-fn main() 
-{    
-    let s: String = "text”.to_string();
-    let u = s;
-    println!("{}", s);
+fn main() {
+    let a: u32 = 5;
+    let b = Box::new(5i32);
+
+    {
+        let a: u32 = 5;
+        let b = Box::new(5i32);
+    }
 }

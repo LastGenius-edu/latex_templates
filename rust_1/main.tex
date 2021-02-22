@@ -419,7 +419,7 @@ Rust has a great ecosystem:
 	All of the code snippets for this lecture\\
 	are available in the repository!}
 	\vspace{0.5cm}
-	\inputminted[fontsize=\Large]{c}{code/helloworld.rs}
+	\inputminted[fontsize=\Large]{rust}{code/helloworld.rs}
 	\vspace{0.4cm}
 	\inputminted[fontsize=\Large]{bash}{code/helloworld.sh}
 
@@ -461,13 +461,15 @@ Rust has a great ecosystem:
 	\vspace{0.5cm}
 	Rust forces us to abide by the following principles:
 	\begin{itemize}[label=$\bullet$]
-		\item We can have multiple shared (immutable) references\\
-			at once (with no mutable references) to a value.
-		\item We can have only one mutable reference\\
-			at once (no shared references to it)
-		\item A reference cannot outlive its referent
-		\item A mutable reference cannot be aliased\\
-			(You can only move the value to a new owner)
+		\item Every value has a single owner at any given time.\\
+			(You can move a value from one owner to another, but when\\
+			value's owner goes away, the value goes away with it too)
+		\item You can borrow a reference to a value, for as long as\\
+			the reference doesn't outlive the value.\\
+			(Borrowed references are temporary pointers, they\\
+			allow you to operate with values you don't own)
+		\item You can only modify a value when you have exclusive\\
+			access to it.
 	\end{itemize}
 	\vspace{0.5cm}
 \end{frame}
@@ -482,25 +484,105 @@ Rust has a great ecosystem:
 	have to do any allocations and frees, Rust borrows\\
 	and drops memory for us.
 \end{frame}
- 
-\begin{frame}{Ownership and lifetimes}
-	\framesubtitle{Examples}
-	1st example. Does this compile and why?
-	\inputminted[fontsize=\normalsize]{c}{code/own1.rs}
-	\vspace{0.6cm}
-	2nd example. Does this compile and why?
-	\inputminted[fontsize=\normalsize]{c}{code/own2.rs}
-\end{frame}
 
 \begin{frame}{Ownership and lifetimes}
 	\framesubtitle{Examples}
-	\inputminted[fontsize=\large]{c}{code/own3.rs}
+	Let's see how Rust automatically drops any values after\\
+	their scope ends (and their owner dies):
+	\vspace{0.3cm}
+	\inputminted[fontsize=\large]{rust}{code/own1.rs}
+	\vspace{0.3cm}
+	Rust handles all data this way, no matter the complexity,\\
+	it will clean up file handlers, network sockets, vectors etc.
 \end{frame}
 
 \begin{frame}{Ownership and lifetimes}
 	\framesubtitle{Examples}
 	\large
-	\textcolor{ucured}{I've got to add more examples!}
+	Let's see how Rust handles \textcolor{ucuyellow}{String}s. Does this compile?
+	\vspace{0.6cm}
+	\inputminted[fontsize=\large]{rust}{code/own2.rs}
+\end{frame}
+
+\begin{frame}{Ownership and lifetimes}
+	\framesubtitle{Examples}
+	\large
+	Does this one compile?
+	\vspace{0.6cm}
+	\inputminted[fontsize=\large]{rust}{code/own3.rs}
+\end{frame}
+
+\begin{frame}{Ownership and lifetimes}
+	\framesubtitle{Examples}
+	\large
+	What is different for \textcolor{ucuyellow}{u32}?
+	\vspace{0.6cm}
+	\inputminted[fontsize=\large]{rust}{code/own4.rs}
+\end{frame}
+
+\begin{frame}{Ownership and lifetimes}
+	\framesubtitle{Copy and Move}
+	\large
+	Rust has a special notion which helps it figure\\
+	out whether the value should be copied or moved.\\
+	\vspace{0.5cm}
+	We'll discuss this a bit later, but for now you	can\\
+	just remember that Rust copies stack-allocated\\
+	primitive values, and moves ownership of heap-\\
+	allocated values.
+	
+\end{frame}
+
+\begin{frame}{Ownership and lifetimes}
+	\framesubtitle{Examples}
+	\inputminted[fontsize=\large]{rust}{code/own5.rs}
+\end{frame}
+
+\begin{frame}{Ownership and lifetimes}
+	\framesubtitle{Examples}
+	\inputminted[fontsize=\large]{rust}{code/own6.rs}
+\end{frame}
+
+\begin{frame}{Ownership and lifetimes}
+	\framesubtitle{Examples}
+	Let's see how Rust will handle complex correct code:
+	\vspace{0.1cm}
+	\inputminted[fontsize=\normalsize]{rust}{code/own7.rs}
+	\vspace{0.5cm}
+\end{frame}
+
+\begin{frame}{Ownership and lifetimes}
+	\framesubtitle{Examples}
+	\large
+	Let's try to invalidate an iterator:
+	\vspace{0.3cm}
+	\inputminted[fontsize=\large]{rust}{code/own8.rs}
+	\vspace{0.5cm}
+\end{frame}
+
+\begin{frame}{Ownership and lifetimes}
+	\framesubtitle{Examples}
+	\large
+	Let's try to return a dangling pointer:
+	\vspace{0.3cm}
+	\inputminted[fontsize=\large]{rust}{code/own9.rs}
+	\vspace{0.5cm}
+\end{frame}
+
+\begin{frame}{Ownership and lifetimes}
+\large	
+We've only looked at some of the simplest cases,\\
+Rust's system is a lot more complex. We'll go\\
+over lifetimes more in the future.\\
+\vspace{0.4cm}
+Since the concept of borrow checker is unique to\\
+Rust, until you will get used to it you will often\\
+encounter compiler errors when working.\\
+\vspace{0.1cm}
+The compiler becomes better and better at working\\
+with lifetimes, and provides super helpful errors,\\
+but it still can be stressful to fight with it\\
+sometimes.
 \end{frame}
 
 \framepic{graphics/1.jpg}{
@@ -513,7 +595,7 @@ Rust has a great ecosystem:
 	\framesubtitle{Basics}
 \textcolor{ucuyellow}{Let's make a simple guessing game!}
 	\vspace{0.4cm}
-	\inputminted[fontsize=\normalsize]{c}{code/guess1.rs}
+	\inputminted[fontsize=\normalsize]{rust}{code/guess1.rs}
 	\vspace{0.4cm}
 \end{frame}
 
@@ -526,40 +608,40 @@ Rust has a great ecosystem:
 	\vspace{0.5cm}
 
 	Add this to your Cargo.toml file:
-	\inputminted[fontsize=\Large]{c}{code/toml1.toml}
+	\inputminted[fontsize=\Large]{toml}{code/toml1.toml}
 \end{frame}
 
 \begin{frame}{Guessing game}
 	\framesubtitle{Random number generation}
-	\inputminted[fontsize=\footnotesize]{c}{code/guess2.rs}
+	\inputminted[fontsize=\footnotesize]{rust}{code/guess2.rs}
 \end{frame}
 
 \begin{frame}{Guessing game}
 	\framesubtitle{(Wrong) Input comparison}
 	%Match expression, enumerators explanation.*
-	\inputminted[fontsize=\normalsize]{c}{code/guess3.rs}
+	\inputminted[fontsize=\normalsize]{rust}{code/guess3.rs}
 \end{frame}
 
 \begin{frame}{Guessing game}
 	\framesubtitle{Input comparison}
 	%Ownership explanation, maybe add a slide about that?*
-	\inputminted[fontsize=\normalsize]{c}{code/guess4.rs}
+	\inputminted[fontsize=\normalsize]{rust}{code/guess4.rs}
 \end{frame}
 
 
 \begin{frame}{Guessing game}
 	\framesubtitle{Looping}
-	\inputminted[fontsize=\normalsize]{c}{code/guess5.rs}
+	\inputminted[fontsize=\normalsize]{rust}{code/guess5.rs}
 \end{frame}
 
 \begin{frame}{Guessing game}
 	\framesubtitle{Breaking out of the loop}
-	\inputminted[fontsize=\large]{c}{code/guess6.rs}
+	\inputminted[fontsize=\large]{rust}{code/guess6.rs}
 \end{frame}
 
 \begin{frame}{Guessing game}
 	\framesubtitle{Handling invalid input}
-	\inputminted[fontsize=\normalsize]{c}{code/guess7.rs}
+	\inputminted[fontsize=\normalsize]{rust}{code/guess7.rs}
 \end{frame}
 
 \begin{frame}{More on cargo}
@@ -567,14 +649,10 @@ Rust has a great ecosystem:
 	\vspace{0.5cm}
 \end{frame}
 
-\framepic{graphics/1.jpg}{
-	\textcolor{ucuwhite}{Thank you!}
- \vskip 0.5cm
- }
 
 \begin{frame}{Interesting readings} 
 
-\text{C, C++ critique:}\\
+C, C++ critique:\\
 
 \href{https://web.archive.org/web/19980425023657/http://paul.merton.ox.ac.uk/computing/unix.html}
 {Creators Admit UNIX, C Hoax}
@@ -612,5 +690,10 @@ Considering Rust:\\
 {The relative performance of C and Rust}
 
 \end{frame}
+
+\framepic{graphics/1.jpg}{
+	\textcolor{ucuwhite}{Thank you!}
+ \vskip 0.5cm
+ }
 
 \end{document}
