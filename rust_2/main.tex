@@ -303,11 +303,12 @@ heap memory with the next node or None.\\
 \inputminted[fontsize=\normalsize]{rust}{code/list3.rs}
 \vspace{0.5cm}
 \inputminted[fontsize=\normalsize]{rust}{code/list4.rs}
+\vspace{0.5cm}
 \end{frame}
 
 \begin{frame}{Practice}
 \framesubtitle{Some more functions}
-\inputminted[fontsize=\normalsize]{rust}{code/list5.rs}
+\inputminted[fontsize=\large]{rust}{code/list5.rs}
 \end{frame}
 
 \begin{frame}{Practice}
@@ -318,10 +319,41 @@ heap memory with the next node or None.\\
 \end{frame}
 
 \begin{frame}{Practice}
-	\framesubtitle{Pop, display}
-\inputminted[fontsize=\footnotesize]{rust}{code/list8.rs}
-\vspace{0.2cm}
-\inputminted[fontsize=\footnotesize]{rust}{code/list9.rs}
+	\framesubtitle{Pop}
+\inputminted[fontsize=\large]{rust}{code/list8.rs}
+\end{frame}
+
+\begin{frame}{Practice}
+	\framesubtitle{Display}
+\inputminted[fontsize=\normalsize]{rust}{code/list9.rs}
+\end{frame}
+
+\begin{frame}{Practice}
+	\framesubtitle{Modules}	
+	Let's imagine we have to split Node and LinkedList implementations\\
+	into different files. Rust's module system is a little weird so this\\
+	little example will help us learn its basics:\\
+
+	\vspace{0.3cm}
+	This should be our Node file:
+	\vspace{0.3cm}
+	\inputminted[fontsize=\normalsize]{rust}{code/list10.rs}
+\end{frame}
+
+\begin{frame}{Practice}
+	\framesubtitle{Modules}
+	\large
+	And this is the beginning of our LinkedList file:
+	\vspace{0.3cm}
+	\inputminted[fontsize=\normalsize]{rust}{code/list11.rs}
+\end{frame}
+
+\begin{frame}{Practice}
+	\framesubtitle{Tests}
+	Rust's ecosystem allows for a quick and easy test deployment,\\
+	integrated with all the usual tooling.\\
+
+	\Large{\textcolor{ucured}{WRITE GODDAMN TESTS}}
 \end{frame}
 
 \end{document}
