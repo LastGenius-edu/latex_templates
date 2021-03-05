@@ -1,9 +1,11 @@
 mod node;
-use node::{new, Node};
+use node::Node;
 
 pub struct LinkedList {
     head: Option<Box<Node>>,
     size: usize,
 }
 
-impl LinkedList {}
+impl LinkedList {
+    // And so on...
+}

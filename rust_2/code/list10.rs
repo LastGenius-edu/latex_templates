@@ -1,6 +1,6 @@
 pub struct Node {
-    value: u32,
-    next: Option<Box<Node>>,
+    pub value: u32,
+    pub next: Option<Box<Node>>,
 }
 
 impl Node {

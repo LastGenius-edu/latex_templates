@@ -81,6 +81,7 @@ arch    & isize  & usize
 There are also two floating point types:
 \textcolor{ucuyellow}{f32} and \textcolor{ucuyellow}{f64}.\\
 And \textcolor{ucuyellow}{bool}, \textcolor{ucuyellow}{char} types.
+Characters in Rust are Unicode chars, and can take up to 4 bytes.
 \end{frame}
 
 \begin{frame}{Rust compound types}
@@ -98,6 +99,28 @@ Arrays are a collection of elements of the same type,\\
 with a fixed length, allocated on the stack.
 \vspace{0.2cm}
 \inputminted[fontsize=\large]{rust}{code/array.rs}
+\vspace{0.5cm}
+\end{frame}
+
+\begin{frame}{Rust compound types}
+\framesubtitle{Slices}
+Slices are dynamically-sized "windows", "slices" into a\\
+collection of elements. Slices let the code that handles\\
+them not care whether it's currently working with an\\
+array slice, with a vector slice or something else.
+\vspace{0.2cm}
+\inputminted[fontsize=\large]{rust}{code/slice.rs}
+\vspace{0.5cm}
+\end{frame}
+
+\begin{frame}{Rust compound types}
+\framesubtitle{String slices}
+String slices are similar, but instead function as windows\\
+into strings. Making your function take a \textcolor{ucuyellow}{str} instead of \\
+\textcolor{ucuyellow}{String} is preferrable, since the latter can be\\
+downreferenced to slices.
+\vspace{0.2cm}
+\inputminted[fontsize=\large]{rust}{code/str.rs}
 \vspace{0.5cm}
 \end{frame}
 
@@ -129,7 +152,6 @@ An example of a function with parameters and a return type:
 \framesubtitle{Expressions and statements}
 \large{\textcolor{ucuyellow}{Rust is primarily an expression language.\\}}
 \vspace{0.5cm}
-\normalsize
 Essentially: Expressions evaluate to a value, and\\
 return that value. Statements do not.
 \vspace{0.5cm}
@@ -157,7 +179,8 @@ that expression.
 
 \begin{frame}{Rust principles}
 \framesubtitle{Common expression usage}
-Scopes return values:\\
+\large
+Scopes can return values:\\
 (Rust returns \textcolor{ucuyellow}{( )} if nothing is returned, it's like None)
 \inputminted[fontsize=\large]{rust}{code/expression3.rs}
 \vspace{0.7cm}
@@ -165,6 +188,7 @@ Scopes return values:\\
 is also an expression:
 \inputminted[fontsize=\large]{rust}{code/expression4.rs}
 \vspace{0.5cm}
+\normalsize
 We can return values from a lot of expressions in Rust 
 (\textcolor{ucuyellow}{match}, for example)
 \end{frame}
@@ -174,18 +198,38 @@ We can return values from a lot of expressions in Rust
 \large
 Rust uses an interesting concept of algebraic \\
 data types, which can hold a few types of values.\\ 
-An example of this is an \textcolor{ucuyellow}{std::Option}:\\
+An example of this is \textcolor{ucuyellow}{std::Option}:\\
 \vspace{0.2cm}
+\inputminted[fontsize=\Large]{rust}{code/option1.rs}
+\vspace{0.4cm}
+\end{frame}
+
+\begin{frame}{Rust principles}
+\framesubtitle{Algebraic data types and match expressions}
+\large
 \inputminted[fontsize=\large]{rust}{code/option1.rs}
 \vspace{0.4cm}
 \normalsize
+Rust's \textcolor{ucuyellow}{enum}s are different from C's since they can hold additional\\
+values inside of them, and Rust's system makes it so you can't\\
+treat one of the values as if it was a different value.\\
+
+\vspace{0.2cm}
 An \textcolor{ucuyellow}{Option<T>}
 contains either a \textcolor{ucuyellow}{Some(value of type T)}
-or \textcolor{ucuyellow}{None}.
+or \textcolor{ucuyellow}{None}.\\
+(These are called enum's variants)\\
 
 Thus, an \textcolor{ucuyellow}{Option<f64>}
 is either a \textcolor{ucuyellow}{Some(f64)}
 or \textcolor{ucuyellow}{None}.
+\end{frame}
+\begin{frame}{Rust principles}
+\framesubtitle{Algebraic data types and match expressions}
+\large	
+Let's see how these types can be used:
+\vspace{0.2cm}
+\inputminted[fontsize=\large]{rust}{code/option2.rs}
 \end{frame}
 
 \begin{frame}{Rust principles}
@@ -193,10 +237,11 @@ or \textcolor{ucuyellow}{None}.
 \large
 Rust forces us to consider all the possible values\\
 of algebraic data types:
-\vspace{0.2cm}
-\inputminted[fontsize=\normalsize]{rust}{code/option2.rs}
-\vspace{0.4cm}
+\vspace{0.3cm}
+\inputminted[fontsize=\large]{rust}{code/option3.rs}
+\vspace{0.3cm}
 You can never miss an error or have an unexpected value this way!
+\vspace{0.4cm}
 \end{frame}
 
 \framepic{graphics/2.jpg}{
@@ -332,7 +377,7 @@ heap memory with the next node or None.\\
 	\framesubtitle{Modules}	
 	Let's imagine we have to split Node and LinkedList implementations\\
 	into different files. Rust's module system is a little weird so this\\
-	little example will help us learn its basics:\\
+	little example will help us learn its basics.\\
 
 	\vspace{0.3cm}
 	This should be our Node file:
@@ -345,15 +390,90 @@ heap memory with the next node or None.\\
 	\large
 	And this is the beginning of our LinkedList file:
 	\vspace{0.3cm}
-	\inputminted[fontsize=\normalsize]{rust}{code/list11.rs}
+	\inputminted[fontsize=\large]{rust}{code/list11.rs}
 \end{frame}
 
 \begin{frame}{Practice}
 	\framesubtitle{Tests}
-	Rust's ecosystem allows for a quick and easy test deployment,\\
-	integrated with all the usual tooling.\\
-
-	\Large{\textcolor{ucured}{WRITE GODDAMN TESTS}}
+	\large
+	Rust's ecosystem allows for a quick and easy test\\
+	deployment, integrated with all the usual tooling.\\
+	Just add this to your linked list source file:\\
+	\vspace{0.2cm}
+	\inputminted[fontsize=\normalsize]{rust}{code/list12.rs}
+	\vspace{0.3cm}
 \end{frame}
+
+\begin{frame}{Practice}
+	\framesubtitle{Tests}
+	\large
+	Tests are also super easy to run! Just launch:\\
+\mint{bash}{$ cargo test}
+	\vspace{0.3cm}
+	You can also shorten it to just: 
+\mint{bash}{$ cargo t}
+	\vspace{0.3cm}
+Or launch only the tests you want\\
+by specifying their function names: 
+\mint{bash}{$ cargo test basic_test}
+	
+\end{frame}
+
+\framepic{graphics/2.jpg}{
+	\textcolor{ucuwhite}{Interesting Rust (community) stuff}
+ \vskip 0.5cm
+}
+
+\section{Interesting Rust community stuff}
+
+\begin{frame}{Rust editions}
+	\Large
+	Rust has a six-week release cycle, and there are also\\
+	bigger editions released every two-three years, which\\
+	might introduce new keywords, implement breaking\\
+	changes	and represents a coherent package of stable\\
+	changes with updated documentation.\\
+
+\end{frame}
+
+\begin{frame}{Rust editions}
+	\large
+	So far, Rust has only had 2 editions: Rust 2015 and Rust 2018.\\
+
+	\vspace{0.3cm}
+	
+	However, Rust 2021 is already in the process of stabilization,\\
+	and is supposed to be completely stable by October 21st!\\
+
+	\vspace{0.3cm}
+	
+	While Rust 2018 introduced a lot of new keywords and breaking\\
+	changes (like \textcolor{ucuyellow}{async}/\textcolor{ucuyellow}{await}, \textcolor{ucuyellow}{try}, 
+	new path rules etc.), Rust 2021\\
+	is more of a "no stress" release.
+\end{frame}
+
+\begin{frame}{Rust community}
+	\large
+	Rust is being developed as an open-source language, and\\
+	shares the values of its open community.\\
+
+	\vspace{0.3cm}
+	Every discussion on the future of the language is done\\
+	in public with RFCs (Request for Comments), and there\\
+	are constantly discussions going on what to work on in\\
+	the future!\\
+
+	\vspace{0.3cm}
+	Rust Foundation also organizes several working groups\\
+	which focus on concrete topics: CLI Rust, Async Rust,\\
+	GameDev Rust etc. Currently there are talks about\\
+	founding a Rust Education Working Group.
+\end{frame}
+
+\framepic{graphics/2.jpg}{
+ \textcolor{ucuwhite}{Thank you!}
+ \vskip 0.5cm
+}
 
 \end{document}
