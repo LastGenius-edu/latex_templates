@@ -386,6 +386,29 @@ heap memory with the next node or None.\\
 \end{frame}
 
 \begin{frame}{Practice}
+	\framesubtitle{Modules}	
+	\large
+	A few Rust terms:
+	\begin{enumerate}
+		\item \textbf{Packages}: A Cargo feature that lets
+			you build, test, and share multiple crates
+		\item \textbf{Crates}: A tree of modules that 
+			produces either a library or an executable
+		\item \textbf{Modules, pub and use}: Let you control the organization, scope, and privacy of paths
+		\item \textbf{Paths}: A way of naming an item, such as a struct, function, or module
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Practice}
+	\framesubtitle{Modules}
+	\large
+	You can use relative and absolute paths to\\
+	specify the item you are looking for:\\
+	\vspace{0.1cm}
+	\inputminted[fontsize=\normalsize]{rust}{code/modules.rs}
+\end{frame}
+
+\begin{frame}{Practice}
 	\framesubtitle{Modules}
 	\large
 	And this is the beginning of our LinkedList file:
