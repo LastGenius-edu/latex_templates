@@ -168,16 +168,104 @@ Iterators, and Traits}
 	\inputminted[fontsize=\large]{rust}{code/hashset1.rs}
 \end{frame}
 
-\begin{frame}{Resources}
+\framepic{graphics/1.jpg}{
+	\textcolor{ucuwhite}{Generics}
+ \vskip 0.5cm
+ }
+
+\section{Generics}
+
+\begin{frame}{Generics}
+	\framesubtitle{General}
 	\Large
-	%\begin{figure}[c]
-		%\includegraphics[width=1\linewidth]{graphics/1.jpg}
-	%\end{figure}
+	Generics are a common way to generalize types and\\
+	functionalities. This can reduce code duplication and\\
+	allow for different and user-defined types to be\\
+	used with generic functions.\\
+	\vspace{0.4cm}
 \end{frame}
 
+\begin{frame}{Generics}
+	\framesubtitle{Generic structs and enums}
+	\large
+	We've already seen a few examples of generic types\\
+	in Rust (as opposed to concrete types): 
+	\vspace{0.2cm}
+	\inputminted[fontsize=\large]{rust}{code/generics1.rs}
+\end{frame}
+
+\begin{frame}{Generics}
+	\framesubtitle{Generic structs and enums}
+	Let's write one of these ourselves:
+	\vspace{0.2cm}
+	\inputminted[fontsize=\large]{rust}{code/generics2.rs}
+\end{frame}
+
+\begin{frame}{Generics}
+	\framesubtitle{Generic structs and enums}
+	\large
+	We can also be more specific with \textcolor{ucuyellow}{impl} blocks:
+	\vspace{0.2cm}
+	\inputminted[fontsize=\large]{rust}{code/generics3.rs}
+\end{frame}
+
+\begin{frame}{Generics}
+	\framesubtitle{Functions}
+	\large
+	In Rust, generics can be used in a lot of cases,\\
+	let's first look at \textcolor{ucuyellow}{generic functions}.\\
+	\vspace{0.2cm}
+	Let's imagine we have two functions that are\\
+	basically the same except for parameter types:\\
+	\vspace{0.2cm}
+	\inputminted[fontsize=\large]{rust}{code/generics4.rs}
+\end{frame}
+
+\begin{frame}{Generics}
+	\framesubtitle{Functions}
+	\large
+	Let's rewrite these functions into a generic function:\\
+	\vspace{0.2cm}
+	\inputminted[fontsize=\Large]{rust}{code/generics5.rs}
+	\vspace{0.2cm}
+	This doesn't compile though...\\
+\end{frame}
+
+\begin{frame}{Generics}
+	\framesubtitle{Functions}
+	\large
+	Rust, at compile-time, needs to be sure that you\\
+	won't be able to call these functions with a type\\
+	that won't have the needed functionality.\\
+	\textcolor{ucured}{TODO: talk about traits}\\
+	\textcolor{ucured}{TODO: talk about bounds, where}\\
+	\textcolor{ucured}{TODO: talk about lifetimes too}
+	%\inputminted[fontsize=\Large]{rust}{code/generics5.rs}
+\end{frame}	
+
+\framepic{graphics/1.jpg}{
+	\textcolor{ucuwhite}{Iterators}
+ \vskip 0.5cm
+ }
+
+\section{Iterators}
+
+\begin{frame}{Iterators}
+	\large
+	\textcolor{ucured}{TODO: talk about iterators, closures, functional programming etc.}
+	
+\end{frame}
+ 
 \framepic{graphics/1.jpg}{
 	\textcolor{ucuwhite}{Thank you!}
  \vskip 0.5cm
  }
+
+%\begin{frame}{Resources}
+	%\Large
+	%\begin{figure}[c]
+		%\includegraphics[width=1\linewidth]{graphics/1.jpg}
+	%\end{figure}
+%\end{frame}
 
 \end{document}
