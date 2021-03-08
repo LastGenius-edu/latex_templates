@@ -169,11 +169,11 @@ Iterators, and Traits}
 \end{frame}
 
 \framepic{graphics/1.jpg}{
-	\textcolor{ucuwhite}{Generics}
+	\textcolor{ucuwhite}{Generics and Traits}
  \vskip 0.5cm
  }
 
-\section{Generics}
+\section{Generics and Traits}
 
 \begin{frame}{Generics}
 	\framesubtitle{General}
@@ -231,17 +231,170 @@ Iterators, and Traits}
 	This doesn't compile though...\\
 \end{frame}
 
-\begin{frame}{Generics}
-	\framesubtitle{Functions}
+\begin{frame}{Traits}
+	\framesubtitle{General}
 	\large
 	Rust, at compile-time, needs to be sure that you\\
 	won't be able to call these functions with a type\\
 	that won't have the needed functionality.\\
-	\textcolor{ucured}{TODO: talk about traits}\\
-	\textcolor{ucured}{TODO: talk about bounds, where}\\
-	\textcolor{ucured}{TODO: talk about lifetimes too}
-	%\inputminted[fontsize=\Large]{rust}{code/generics5.rs}
+	\vspace{0.3cm}
+	Rust has a concept that allows to tell the compiler\\
+	about type's functionality, and to share that\\
+	functionality between several types - \textcolor{ucuyellow}{traits}.\\
 \end{frame}	
+
+\begin{frame}{Traits}
+	\framesubtitle{General}
+	\large
+	What's the type functionality? Basically - just the\\
+	methods we can call on that type, and traits\\
+	allow us to group those methods in specific sets.\\
+	\vspace{0.4cm}
+	Let's imagine we have several possible types of\\
+	students - kindergarten, school and university\\
+	students. We want to be able to get a report on\\
+	them - with their names, grades etc.\\
+\end{frame}
+
+\begin{frame}{Traits}
+	\framesubtitle{Example}
+	\large
+	We define an 'interface' of our shared functionality\\
+	with method signatures without any implementation.\\
+	We can also provide default functionality for a trait:\\
+	\vspace{0.2cm}
+	\inputminted[fontsize=\normalsize]{rust}{code/traits1.rs}
+	\vspace{0.2cm}
+\end{frame}
+
+\begin{frame}{Traits}
+	\framesubtitle{Example}
+	\large
+	Let's implement this trait for one of our student types:\\
+	\vspace{0.2cm}
+	\inputminted[fontsize=\normalsize]{rust}{code/traits2.rs}
+\end{frame}
+
+\begin{frame}{Traits}
+	\framesubtitle{Traits as parameters}
+	\large
+	When we want to be sure that the type we take as a parameter\\
+	has the needed functionality, we can use the \textcolor{ucuyellow}{impl Trait} syntax:\\
+	\vspace{0.2cm}
+	\inputminted[fontsize=\large]{rust}{code/traits3.rs}
+\end{frame}
+
+\begin{frame}{Traits}
+	\framesubtitle{Traits as parameters}
+	\large
+	We can also specify having multiple traits\\
+	implemented as a requirement:\\
+	\vspace{0.2cm}
+	\inputminted[fontsize=\large]{rust}{code/traits4.rs}
+\end{frame}
+
+\begin{frame}{Traits}
+	\framesubtitle{Traits as parameters}
+	\large
+	If your function is generic over several types with\\
+	different trait bounds, it's better to use \textcolor{ucuyellow}{where} syntax:\\	
+	\vspace{0.2cm}
+	\inputminted[fontsize=\large]{rust}{code/traits5.rs}
+\end{frame}
+
+\begin{frame}{Generics and Traits}
+	\framesubtitle{Bounds}
+	\large
+	Let's return to an earlier example of a generic function:
+	\vspace{0.2cm}
+	\inputminted[fontsize=\Large]{rust}{code/generics5.rs}
+	\vspace{0.2cm}
+\end{frame}
+
+\begin{frame}{Generics and Traits}
+	\framesubtitle{Bounds}
+	Why didn't it compile? Well, the compiler is actually quite helpful:\\
+	\vspace{0.2cm}
+	\inputminted[fontsize=\large]{rust}{code/generics6.rs}
+\end{frame}
+
+\begin{frame}{Generics and Traits}
+	\framesubtitle{Bounds}
+	\large
+	Let's look at that \textcolor{ucuyellow}{std::ops::Add}:
+	\vspace{0.2cm}
+	\inputminted[fontsize=\large]{rust}{code/generics7.rs}
+\end{frame}
+
+\begin{frame}{Generics and Traits}
+	\framesubtitle{Bounds}
+	\large
+	Let's add a bound on our generic function:\\
+	\vspace{0.2cm}
+	\inputminted[fontsize=\large]{rust}{code/generics8.rs}
+	\vspace{0.6cm}
+	But this doesn't compile, again...
+\end{frame}
+
+\begin{frame}{Generics and Traits}
+	\framesubtitle{Bounds}
+	\large
+	Once again, Rust compiler saving our souls:
+	\vspace{0.2cm}
+	\inputminted[fontsize=\normalsize]{rust}{code/generics9.rs}
+\end{frame}
+
+\begin{frame}{Generics and Traits}
+	\framesubtitle{Bounds}
+	\large
+	Alright, let's restrict it even further, now also\\
+	considering that we don't want to borrow our\\
+	arguments, we want to copy them:\\
+	\vspace{0.2cm}
+	\inputminted[fontsize=\large]{rust}{code/generics10.rs}
+\end{frame}
+
+\begin{frame}{Generics and Traits}
+	\framesubtitle{std Traits}
+	\large
+	The standard library implements a lot of traits\\
+	which allow it to reason about the functionality\\
+	that certain types might have. The \textcolor{ucuyellow}{Copy} one\\
+	we used	is a good example.\\
+	\vspace{0.2cm}
+	\inputminted[fontsize=\large]{rust}{code/traits6.rs}
+	\vspace{0.2cm}
+	This allows the Rust compiler to understand whether\\
+	to move the object out or to copy it. 	
+\end{frame}
+
+\begin{frame}{Generics and Traits}
+	\framesubtitle{std Traits}
+	\large
+	If the type implements a \textcolor{ucuyellow}{Copy} trait, it's usually just\\
+	called Copy. For example, i32 is Copy, because it\\
+	implements the trait and won't move out:\\
+	\vspace{0.2cm}
+	\inputminted[fontsize=\normalsize]{rust}{code/traits7.rs}
+\end{frame}
+
+\begin{frame}{Generics and Traits}
+	\framesubtitle{std Traits}
+	\large
+	The standard library provides a lot of traits with default\\
+	implementations which you can derive, among them:\\
+	\vspace{0.2cm}
+	\begin{itemize}[label=$\bullet$]
+		\item \textbf{Debug} - Debug formatting using :?
+		\item \textbf{PartialEq} and \textbf{Eq} - For $!=$ and $==$ implementations
+		\item \textbf{PartialOrd} and \textbf{Ord} - For orderings using $<, >, <=, >=$
+		\item \textbf{Hash} - Allows to map an instance to a value
+	\end{itemize}
+	\vspace{0.5cm}
+	There are also 'marker' traits without any implementations,\\
+	but they are beyond the scope of this lecture.\\
+	\textcolor{ucured}{TODO: talk about lifetimes too}
+\end{frame}
 
 \framepic{graphics/1.jpg}{
 	\textcolor{ucuwhite}{Iterators}
