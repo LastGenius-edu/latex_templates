@@ -393,7 +393,117 @@ Iterators, and Traits}
 	\vspace{0.5cm}
 	There are also 'marker' traits without any implementations,\\
 	but they are beyond the scope of this lecture.\\
-	\textcolor{ucured}{TODO: talk about lifetimes too}
+\end{frame}
+
+\framepic{graphics/1.jpg}{
+	\textcolor{ucuwhite}{Lifetimes}
+ \vskip 0.5cm
+ }
+
+\section{Lifetimes}
+\begin{frame}{Lifetimes}
+	\large
+	We've already talked about lifetimes a little, but so far\\
+	we've mainly relied on the compiler to figure out lifetimes\\
+	for us. Sometimes it's impossible for the compiler to\\
+	reason about lifetimes, and we are forced to help it out.\\
+	\vspace{0.4cm}
+	This is where generic lifetimes come in. Yes, Rust has a lot\\
+	of generic stuff - your functions can operate on generic\\
+	types, 'generic' trait-implementing types and lifetimes.
+\end{frame}
+
+\begin{frame}{Lifetimes}
+	\large
+	Let's remind ourselves how Rust compiler\\
+	reasons about lifetimes:\\
+	\vspace{0.3cm}
+	\inputminted[fontsize=\large]{rust}{code/lifetimes1.rs}
+\end{frame}
+
+\begin{frame}{Lifetimes}
+	\large
+	And now in the case of a simple function:
+	\vspace{0.5cm}
+	\inputminted[fontsize=\large]{rust}{code/lifetimes2.rs}
+\end{frame}
+
+\begin{frame}{Lifetimes}
+	\large
+	If the references do not contain explicit lifetime annotations,\\
+	they are instead called implicit. We can write simple functions\\
+	without explicitly annotating lifetimes of our parameters (just\\
+	how we can omit types sometimes), and the function will be\\
+	figured out by the compiler like this:\\
+	\vspace{0.2cm}
+	\inputminted[fontsize=\large]{rust}{code/lifetimes3.rs}
+\end{frame}
+
+\begin{frame}{Lifetimes}
+	\large
+	Generally, when it is possible, Rust compiler does not need\\
+	our help and is able to figure out the lifetimes on its own.\\
+	\vspace{0.4cm}
+	It uses several rules for figuring out the lifetimes for functions:\\
+	\begin{itemize}[label=$\bullet$]
+		\item Each parameter that is a reference gets its own lifetime
+		\item If there is one input lifetime, this lifetime is assigned\\
+			to the return value
+		\item If there are several input lifetimes, but one is \textcolor{ucuyellow}{self},\\
+			its lifetime is assigned to the return value
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Lifetimes}
+	\large
+	Let's try to apply these rules in a more complex case:
+	\vspace{0.2cm}
+	\inputminted[fontsize=\large]{rust}{code/lifetimes4.rs}
+\end{frame}
+
+\begin{frame}{Lifetimes}
+	\large
+	Rust compiler is not able to figure out the lifetime\\
+	of the returned reference with these rules:
+	\vspace{0.2cm}
+	\inputminted[fontsize=\large]{rust}{code/lifetimes5.rs}
+\end{frame}
+
+\begin{frame}{Lifetimes}
+	\large
+	It will complain and try help us:
+	\vspace{0.2cm}
+	\inputminted[fontsize=\large]{rust}{code/lifetimes6.rs}
+\end{frame}
+
+\begin{frame}{Lifetimes}
+	\large
+	Let's introduce a single named lifetime parameter:
+	\vspace{0.2cm}
+	\inputminted[fontsize=\large]{rust}{code/lifetimes7.rs}
+\end{frame}
+
+\begin{frame}{Lifetimes}
+	\large
+	One special lifetime in Rust is \textcolor{ucuyellow}{'static}:
+	\vspace{0.2cm}
+	\inputminted[fontsize=\Large]{rust}{code/lifetimes8.rs}
+	\vspace{0.2cm}
+	It means that the reference will live for the entire\\
+	duration of the program (indeed, string literals\\
+	are just embedded into the program binary).\\
+	\vspace{0.2cm}
+	The compiler will often suggest you use this\\
+	lifetime as an annotation, but you should only\\
+	use it when it makes sense!
+\end{frame}
+
+\begin{frame}{Lifetimes}
+	\large
+	Rust functions can often get pretty messy when you use\\
+	generic types, lifetimes and trait bounds:
+	\vspace{0.2cm}
+	\inputminted[fontsize=\large]{rust}{code/lifetimes9.rs}
 \end{frame}
 
 \framepic{graphics/1.jpg}{
