@@ -8,6 +8,17 @@ basically two commands you can work without any Makefiles!
 pdflatex -shell-escape main.tex
 # Cleans all of the debug/compile trash
 rm main.{toc,run.xml,.tex.bbl,tex.blg,log,nav,bcf,aux,out,snm,fdb_latexmk,bbl,blg}
+
+# When you have to turn slides into lecture notes for yourself, copy the
+# first 30 lines or so of configs from any lecture.tex file, and then just
+# apply some of these commands to make it compile and look nice:
+# :%s/\\\\/
+# :%s/\\framesubtitle{\(.\+\)}/\\subsubsection{\1}/
+# :%s/\\end{frame}
+# :%s/fontsize=\\large/fontsize=\\normalsize/
+# :%s/\\begin{frame}{\(.\+\)}/\\subsection{\1}/
+# :%s/\\textcolor{.\+}{\(.\+\)}/\1/
+# :%s/\\vspace.\+//
 ```
 
 I've also included my `tex.snippets` file for the `vim-snippets`
