@@ -1,1 +1,15 @@
 _minted-main/
+_minted-notes/
+*.toc
+*.run.xml
+*.tex.bbl
+*tex.blg
+*log
+*nav
+*bcf
+*aux
+*out
+*snm
+*fdb_latexmk
+*bbl
+*blg
