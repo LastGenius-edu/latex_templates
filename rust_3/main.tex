@@ -507,16 +507,167 @@ Iterators, and Traits}
 \end{frame}
 
 \framepic{graphics/1.jpg}{
-	\textcolor{ucuwhite}{Iterators}
+	\textcolor{ucuwhite}{Iterators and Closures}
  \vskip 0.5cm
  }
 
-\section{Iterators}
+\section{Iterators and Closures}
+
+\begin{frame}{Closures}
+	\large
+	Closures are a common concept in functional programming,\\
+	they are similar to lambda functions. In Rust, closures\\
+	are anonymous inline functions which can be bound to\\
+	variables. They are 'lazily' executed - will only start\\
+	working when you call them.
+
+	\vspace{0.5cm}
+	\inputminted[fontsize=\Large]{rust}{code/closures1.rs}
+\end{frame}
+
+\begin{frame}{Closures}
+	\large
+	Rust will infer the types of closure parameters\\
+	and return values, but we could include them\\
+	explicitly, like in a function definition:\\
+	\vspace{0.5cm}
+	\inputminted[fontsize=\Large]{rust}{code/closures2.rs}
+\end{frame}
+
+\begin{frame}{Closures}
+	\large
+	Rust allows some variation with closures syntax,\\
+	but they are still similar to functions:
+	\vspace{0.5cm}
+	\inputminted[fontsize=\Large]{rust}{code/closures3.rs}
+\end{frame}
+
+\begin{frame}{Closures}
+	\large
+	Why are they called closures? Because they 'close over'\\
+	their environment, they can capture variables in their\\
+	definition scope:\\
+	\vspace{0.5cm}
+	\inputminted[fontsize=\Large]{rust}{code/closures4.rs}
+\end{frame}
+
+\begin{frame}{Closures}
+	\large
+	Closures will figure out which variables they need and\\
+	what they need to do with them, and will only borrow or\\
+	move those. You should be aware of their behavior:\\
+	\vspace{0.5cm}
+	\inputminted[fontsize=\Large]{rust}{code/closures5.rs}
+\end{frame}
+
+\begin{frame}{Closures}
+	\large
+	You can force the closure to move the variables it needs.\\
+	It might not actually take ownership of them if types are Copy!
+	\vspace{0.5cm}
+	\inputminted[fontsize=\Large]{rust}{code/closures6.rs}
+	\vspace{0.5cm}
+	This is often used with closures that run asynchronously\\
+	and will need to survive longer than the current scope.
+\end{frame}
+
+\begin{frame}{Closures}
+	\large
+	Under the hood, closures are actually done using several traits:\\
+	\vspace{0.5cm}
+	\inputminted[fontsize=\large]{rust}{code/closures7.rs}
+\end{frame}
+
+\begin{frame}{Closures}
+	\large
+	So, your nice closure syntax will actually desugar to Rust\\
+	creating a struct with all the variables you capture, and\\
+	implementing the trait it needs on your struct.\\
+	\vspace{0.5cm}
+	Every closure is an \textcolor{ucuyellow}{FnOnce}, since it can be called once,\\
+	closures that do not move their environment into them,\\
+	but only borrow it mutably also are \textcolor{ucuyellow}{FnMut}, and closures\\
+	that only borrow it immutably are also \textcolor{ucuyellow}{Fn}.\\
+\end{frame}
+
+\begin{frame}{Closures}
+	\large
+	You can take or return closures from functions using\\
+	these traits as bounds:
+	\vspace{0.3cm}
+	\inputminted[fontsize=\large]{rust}{code/closures8.rs}
+	\vspace{0.2cm}
+	If you want to return closures, you will have to put them\\
+	on the heap (since their size is not known at compile time)\\
+	and move your environment into them.
+	\vspace{0.2cm}
+\end{frame}
 
 \begin{frame}{Iterators}
 	\large
-	\textcolor{ucured}{TODO: talk about iterators, closures, functional programming etc.}
-	
+	Iterators in Rust are not that different from your\\
+	typical iterators in other languages. To be an Iterator\\
+	you will have to implement an Iterator trait with a single\\
+	required method:\\
+	\vspace{0.3cm}
+	\inputminted[fontsize=\large]{rust}{code/iterators1.rs}
+	\vspace{0.3cm}
+	Everything works thanks to Rust features: traits and\\
+	algebraic types. While your iterator has values to return,\\
+	it will return \textcolor{ucuyellow}{Some(Item)}, and once it runs out of them,\\
+	it will start returning \textcolor{ucuyellow}{None}.
+\end{frame}
+
+\begin{frame}{Iterators}
+	\large
+	Everything works as you would expect:\\
+	\vspace{0.3cm}
+	\inputminted[fontsize=\large]{rust}{code/iterators2.rs}
+\end{frame}
+
+\begin{frame}{Iterators}
+	\large
+	You can also create mutable iterators, and iterators\\
+	that will consume your collection:
+	\vspace{0.3cm}
+\begin{itemize}[label=$\bullet$]
+	\item \textbf{.iter()} - iterates over \textcolor{ucuyellow}{\&T} \\
+	\item \textbf{.iter\_mut()} - iterates over \textcolor{ucuyellow}{\&mut T}\\
+	\item \textbf{.into\_iter()} - iterates over \textcolor{ucuyellow}{T}\\
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Iterators}
+	Rust provides syntactic sugar for them:\\
+	\vspace{0.3cm}
+	\inputminted[fontsize=\Large]{rust}{code/iterators3.rs}
+\end{frame}
+
+\begin{frame}{Iterators}
+	\inputminted[fontsize=\Large]{rust}{code/iterators4.rs}
+\end{frame}
+
+\begin{frame}{Iterators}
+	\inputminted[fontsize=\Large]{rust}{code/iterators5.rs}
+\end{frame}
+
+\begin{frame}{Iterators}
+	\large
+	Once you implement the .next() method, you will get default\\
+	implementations of a lot of adapters:\\
+	\vspace{0.3cm}
+	\inputminted[fontsize=\normalsize]{rust}{code/iterators6.rs}
+	\vspace{0.3cm}
+\end{frame}
+
+\begin{frame}{Iterators}
+	\large
+	Rust's iterators are heavily optimized, so you shouldn't\\
+	feel bad about using a bunch of adapters one over another.\\
+	\vspace{0.3cm}
+	They are essential for idiomatic collection processing,\\
+	and you should spend some time looking over their official\\
+	documentation and learn which adapters you need!
 \end{frame}
  
 \framepic{graphics/1.jpg}{
