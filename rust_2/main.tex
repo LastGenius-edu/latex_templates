@@ -251,6 +251,44 @@ You can never miss an error or have an unexpected value this way!
 \vspace{0.4cm}
 \end{frame}
 
+\begin{frame}{Rust principles}
+\framesubtitle{Option matching shortcuts}
+\large
+We can use \textcolor{ucuyellow}{if let} if we only care about the successful\\
+case (think of it as a pattern we match against). You\\
+can also add an else clause, of course:
+
+\vspace{0.3cm}
+\inputminted[fontsize=\Large]{rust}{code/option4.rs}
+\end{frame}
+
+\begin{frame}{Rust principles}
+\framesubtitle{Option matching shortcuts}
+\large
+This destructuring can also be used to loop over things,\\
+(Rust iterators produce Options, for example):\\
+
+\vspace{0.3cm}
+\inputminted[fontsize=\Large]{rust}{code/option5.rs}
+\end{frame}
+
+\begin{frame}{Rust principles}
+\framesubtitle{Option matching shortcuts}
+\large
+Some of methods on Option:
+\vspace{0.5cm}
+\inputminted[fontsize=\Large]{rust}{code/option6.rs}
+\end{frame}
+
+\begin{frame}{Rust principles}
+\framesubtitle{Option matching shortcuts}
+\large
+Option is also useful since you can basically take\\
+away the value, leaving None in its place:\\
+\vspace{0.5cm}
+\inputminted[fontsize=\Large]{rust}{code/option7.rs}
+\end{frame}
+
 \framepic{graphics/2.jpg}{
  \textcolor{ucuwhite}{Error Handling}
  \vskip 0.5cm
@@ -447,6 +485,55 @@ Or launch only the tests you want\\
 by specifying their function names: 
 \mint{bash}{$ cargo test basic_test}
 	
+\end{frame}
+
+\framepic{graphics/2.jpg}{
+	\textcolor{ucuwhite}{Declarative Macros}
+ \vskip 0.5cm
+}
+
+\section{Declarative Macros}
+
+\begin{frame}{Macros}
+	\framesubtitle{What is that?}
+	\large
+	Macros are, essentially, a way to metaprogram in Rust.\\
+	\vspace{0.2cm}
+	Metaprogramming is a way to write code that... writes code.\\
+	By transferring the workload of this code from runtime\\
+	to compile time we are able to achieve a lot of new\\
+	otherwise impossible things.
+	
+	\vspace{0.5cm}
+	\inputminted[fontsize=\large]{rust}{code/macros1.rs}
+\end{frame}
+
+\begin{frame}{Macros}
+	\framesubtitle{What is that?}
+	\large
+	There are several kinds of macros in Rust, but\\
+	we are only going to talk about declarative\\
+	macros, the simplest kind:
+	
+	\vspace{0.5cm}
+	\inputminted[fontsize=\Large]{rust}{code/macros2.rs}
+\end{frame}
+
+\begin{frame}{Macros}
+	\framesubtitle{And how they work}
+	\Large
+	Rust's macros are a continuation of the pattern\\
+	matching trend we've seen in Rust so far. They\\
+	compare an input to a pattern, and substitute it\\
+	with code, it's just that the input they take\\
+	is Rust code itself.
+	
+	\vspace{0.2cm}
+\end{frame}
+
+\begin{frame}{Macros}
+	\framesubtitle{And how they work}
+	\inputminted[fontsize=\large]{rust}{code/macros3.rs}
 \end{frame}
 
 \framepic{graphics/2.jpg}{

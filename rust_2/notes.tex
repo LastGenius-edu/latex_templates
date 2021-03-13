@@ -41,7 +41,6 @@
 
 \section{Rust basics}
 \subsection{Rust primitive types} 
-\large
 Integer types
 \begin{table}[]
 \begin{tabular}{lll}
@@ -102,35 +101,7 @@ downreferenced to slices.
 
 
 \subsection{Functions}
-\large
-An example of a function with parameters and a return type:
-
-\inputminted[fontsize=\normalsize]{rust}{code/function.rs}
-
-
-
-\subsection{Control flow}
-	\subsubsection{Unconditional looping}
-\inputminted[fontsize=\normalsize]{rust}{code/control1.rs}
-
-
-
-\subsection{Control flow}
-	\subsubsection{Conditional looping}
-\inputminted[fontsize=\normalsize]{rust}{code/control2.rs}
-
-
-
-\subsection{Control flow}
-	\subsubsection{Label break}
-\inputminted[fontsize=\normalsize]{rust}{code/control3.rs}
-
-
-
-\section{Rust principles}
-\subsection{Rust principles}
-\subsubsection{Expressions and statements}
-\large{Rust is primarily an expression language.}
+Rust is primarily an expression language.
 
 Essentially: Expressions evaluate to a value, and
 return that value. Statements do not.
@@ -159,7 +130,6 @@ that expression.
 
 \subsection{Rust principles}
 \subsubsection{Common expression usage}
-\large
 Scopes can return values:
 (Rust returns ( ) if nothing is returned, it's like None)
 \inputminted[fontsize=\normalsize]{rust}{code/expression3.rs}
@@ -175,7 +145,6 @@ We can return values from a lot of expressions in Rust
 
 \subsection{Rust principles}
 \subsubsection{Algebraic data types and match expressions}
-\large
 Rust uses an interesting concept of algebraic 
 data types, which can hold a few types of values. 
 An example of this is std::Option:
@@ -186,7 +155,6 @@ An example of this is std::Option:
 
 \subsection{Rust principles}
 \subsubsection{Algebraic data types and match expressions}
-\large
 \inputminted[fontsize=\normalsize]{rust}{code/option1.rs}
 
 \normalsize
@@ -206,7 +174,6 @@ or None.
 
 \subsection{Rust principles}
 \subsubsection{Algebraic data types and match expressions}
-\large	
 Let's see how these types can be used:
 
 \inputminted[fontsize=\normalsize]{rust}{code/option2.rs}
@@ -214,7 +181,6 @@ Let's see how these types can be used:
 
 \subsection{Rust principles}
 \subsubsection{Algebraic data types and match expressions}
-\large
 Rust forces us to consider all the possible values
 of algebraic data types:
 
@@ -222,14 +188,37 @@ of algebraic data types:
 
 You can never miss an error or have an unexpected value this way!
 
+\subsection{Rust principles}
+\subsubsection{Option matching shortcuts}
+We can use if let if we only care about the successful\\
+case (think of it as a pattern we match against). You\\
+can also add an else clause, of course:
 
+\inputminted[fontsize=\normalsize]{rust}{code/option4.rs}
+
+\subsection{Rust principles}
+\subsubsection{Option matching shortcuts}
+This destructuring can also be used to loop over things,\\
+(Rust iterators produce Options, for example):\\
+
+\inputminted[fontsize=\normalsize]{rust}{code/option5.rs}
+
+\subsection{Rust principles}
+\subsubsection{Option matching shortcuts}
+Some of methods on Option:
+\inputminted[fontsize=\normalsize]{rust}{code/option6.rs}
+
+\subsection{Rust principles}
+\subsubsection{Option matching shortcuts}
+Option is also useful since you can basically take\\
+away the value, leaving None in its place:\\
+\inputminted[fontsize=\normalsize]{rust}{code/option7.rs}
 
 
 \section{Error Handling}
 
 \subsection{Error handling methods}
 	\subsubsection{Panic}
-\large
 If you can't recover from an error, just panic!
 (not irl though)
 
@@ -252,7 +241,6 @@ Err(value of type E):
 
 \subsection{Error handling methods}
 \subsubsection{Working with the result}
-\large
 Once again, you can't miss an error this way,
 you always have to expect it!
 
@@ -281,7 +269,6 @@ you always have to expect it!
 \section{Practice - Linked list}
 
 \subsection{Practice}
-\large
 Let's implement a basic LinkedList which is going to
 hold u32s!
 
@@ -295,7 +282,6 @@ Fair Warning: This is going to require some change of thinking!
 
 \subsection{Practice}
 \subsubsection{Node and heap}
-\large
 The most basic C/C++ implementation of a node
 consists of a value and a pointer to a chunk of
 heap memory with the next node or None.
@@ -305,7 +291,6 @@ heap memory with the next node or None.
 
 \subsection{Practice}
 \subsubsection{Node and heap}
-\large
 The most basic C/C++ implementation of a node
 consists of a value and a pointer to a chunk of
 heap memory with the next node or None.
@@ -359,7 +344,6 @@ None????? Are you crazy, this is Rust!
 
 \subsection{Practice}
 	\subsubsection{Modules}	
-	\large
 	A few Rust terms:
 	\begin{enumerate}
 		\item \textbf{Packages}: A Cargo feature that lets
@@ -373,7 +357,6 @@ None????? Are you crazy, this is Rust!
 
 \subsection{Practice}
 	\subsubsection{Modules}
-	\large
 	You can use relative and absolute paths to
 	specify the item you are looking for:
 	
@@ -382,7 +365,6 @@ None????? Are you crazy, this is Rust!
 
 \subsection{Practice}
 	\subsubsection{Modules}
-	\large
 	And this is the beginning of our LinkedList file:
 	
 	\inputminted[fontsize=\normalsize]{rust}{code/list11.rs}
@@ -390,7 +372,6 @@ None????? Are you crazy, this is Rust!
 
 \subsection{Practice}
 	\subsubsection{Tests}
-	\large
 	Rust's ecosystem allows for a quick and easy test
 	deployment, integrated with all the usual tooling.
 	Just add this to your linked list source file:
@@ -401,7 +382,6 @@ None????? Are you crazy, this is Rust!
 
 \subsection{Practice}
 	\subsubsection{Tests}
-	\large
 	Tests are also super easy to run! Just launch:
 \mint{bash}{$ cargo test}
 	
@@ -412,13 +392,41 @@ Or launch only the tests you want
 by specifying their function names: 
 \mint{bash}{$ cargo test basic_test}
 	
+\section{Declarative Macros}
 
+\subsection{Macros}
+	\subsubsection{What is that?}
+	Macros are, essentially, a way to metaprogram in Rust.\\
+	Metaprogramming is a way to write code that... writes code.\\
+	By transferring the workload of this code from runtime\\
+	to compile time we are able to achieve a lot of new\\
+	otherwise impossible things.
+	\inputminted[fontsize=\normalsize]{rust}{code/macros1.rs}
+
+\subsection{Macros}
+	\subsubsection{What is that?}
+	There are several kinds of macros in Rust, but\\
+	we are only going to talk about declarative\\
+	macros, the simplest kind:
+	\inputminted[fontsize=\normalsize]{rust}{code/macros2.rs}
+
+\subsection{Macros}
+	\subsubsection{And how they work}
+	Rust's macros are a continuation of the pattern\\
+	matching trend we've seen in Rust so far. They\\
+	compare an input to a pattern, and substitute it\\
+	with code, it's just that the input they take\\
+	is Rust code itself.
+	
+
+\subsection{Macros}
+	\subsubsection{And how they work}
+	\inputminted[fontsize=\normalsize]{rust}{code/macros3.rs}
 
 
 \section{Interesting Rust community stuff}
 
 \subsection{Rust editions}
-	\Large
 	Rust has a six-week release cycle, and there are also
 	bigger editions released every two-three years, which
 	might introduce new keywords, implement breaking
@@ -428,7 +436,6 @@ by specifying their function names:
 
 
 \subsection{Rust editions}
-	\large
 	So far, Rust has only had 2 editions: Rust 2015 and Rust 2018.
 
 	
@@ -445,7 +452,6 @@ by specifying their function names:
 
 
 \subsection{Rust community}
-	\large
 	Rust is being developed as an open-source language, and
 	shares the values of its open community.
 
