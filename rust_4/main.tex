@@ -1,0 +1,150 @@
+% Skip over this boring header down a bit
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[usenames,dvipsnames,10pt,aspectratio=169]{beamer} 
+% Add option 'aspectratio=169' for 16:9 widescreen 
+% Add option  'handout' to ignore animations
+% If you have a smaller amount of text, feel free to also try '11pt'! / Jesper
+
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage{minted}
+\usemintedstyle{monokai}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage[document]{ragged2e}
+\usetheme{umu}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=ucuyellow,
+    filecolor=ucuyellow,      
+    urlcolor=ucuyellow,
+}
+\urlstyle{same}
+
+\usepackage[shortlabels]{enumitem}
+
+%%% Bibliography
+\usepackage[style=authoryear,backend=biber]{biblatex}
+\addbibresource{bibliography.bib}
+
+\DeclareNameAlias{author}{given-family}
+
+%%% Suppress biblatex annoying warning
+\usepackage{silence}
+\WarningFilter{biblatex}{Patching footnotes failed}
+
+%%% Some useful commands
+% pdf-friendly newline in links
+\newcommand{\pdfnewline}{\texorpdfstring{\newline}{ }} 
+% Fill the vertical space in a slide (to put text at the bottom)
+\newcommand{\framefill}{\vskip0pt plus 1filll}
+
+%%% Enter additional packages below 
+\renewcommand{\proofname}{\sffamily{Proof}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[Rust \#4]{Rust \#4: Smart pointers,\\ \vspace{0.1cm}Concurrency and Async}
+\author[Sultanov Andriy]{Sultanov Andriy}
+\institute{APPS@UCU}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{\contentsname}
+\tableofcontents
+\end{frame}
+
+\framepic{graphics/7.jpg}{
+ \textcolor{ucuwhite}{Smart pointers}
+ \vskip 0.5cm
+ }
+
+\section{Smart pointers}
+
+\begin{frame}{List slide}
+\large	
+Rust standard library has a few useful smart pointers:
+\vspace{0.4cm}
+\begin{itemize}[label=$\bullet$]
+	\item Box<T>
+	\item Rc<T>
+	\item Cell<T>
+	\item RefCell<T>
+\end{itemize}
+\end{frame}
+
+
+\framepic{graphics/7.jpg}{
+ \textcolor{ucuwhite}{Concurrency}
+ \vskip 0.5cm
+ }
+
+\section{Concurrency}
+
+\begin{frame}{Concurrency}
+	\large
+	\textcolor{ucured}{TODO: Talk about Arc, Mutex,
+	mspc, and the way Rust's system prevents data races at compile
+time.}
+\end{frame}
+
+\framepic{graphics/7.jpg}{
+ \textcolor{ucuwhite}{Async}
+ \vskip 0.5cm
+ }
+
+\section{Async}
+
+\begin{frame}{Async}
+	\large
+	Rust has, relatively recently, finally settled with its\\
+	asynchronous implementation. We do not have the time to\\
+	cover all the details of its implementation, and therefore\\
+	its history and efficiency, however, we will see the ease\\
+	with which your Rust programs can become asynchronous.\\
+	\textcolor{ucured}{TODO: talk about runtimes, executors,
+	reactors, libraries, futures, async, await, closures etc.}
+	
+	%\inputminted[fontsize=\normalsize]{rust}{code/example1.rs}
+\end{frame}
+
+\framepic{graphics/7.jpg}{
+ \textcolor{ucuwhite}{Looking back}
+ \vskip 0.5cm
+ }
+
+\section{Looking back}
+
+\begin{frame}{Looking back}
+	\large
+\textcolor{ucured}{TODO: Having learned these powerful abstractions
+and techniques blah blah blah}
+	
+\end{frame}
+
+\framepic{graphics/7.jpg}{
+ \textcolor{ucuwhite}{And ahead...}
+ \vskip 0.5cm
+ }
+
+\section{And ahead...}
+
+\begin{frame}{Looking back}
+	\large
+\textcolor{ucured}{TODO: We haven't covered quite a lot of important
+stuff in Rust. Here are some pointers on what you could do and 
+where you should probably look}
+	
+\end{frame}
+
+\framepic{graphics/7.jpg}{
+	\textcolor{ucuwhite}{Thank you!}
+ \vskip 0.5cm
+ }
+
+\end{document}

@@ -1,0 +1,542 @@
+% Skip over this boring header down a bit
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[usenames,twocolumn,dvipsnames,10pt,a4wide]{article} 
+\usepackage[a4paper, total={8in, 10in}]{geometry}
+% Add option 'aspectratio=169' for 16:9 widescreen 
+% Add option  'handout' to ignore animations
+% If you have a smaller amount of text, feel free to also try '11pt'! / Jesper
+
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage{minted}
+\usemintedstyle{vs}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage[document]{ragged2e}
+
+\usepackage[shortlabels]{enumitem}
+
+%%% Bibliography
+\usepackage[style=authoryear,backend=biber]{biblatex}
+\addbibresource{bibliography.bib}
+
+\DeclareNameAlias{author}{given-family}
+
+%%% Suppress biblatex annoying warning
+\usepackage{silence}
+\WarningFilter{biblatex}{Patching footnotes failed}
+
+%%% Some useful commands
+% pdf-friendly newline in links
+\newcommand{\pdfnewline}{\texorpdfstring{\newline}{ }} 
+% Fill the vertical space in a slide (to put text at the bottom)
+\newcommand{\framefill}{\vskip0pt plus 1filll}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Rust \#1: Motivation and Introduction}
+
+\begin{document}
+\maketitle
+
+
+\section{What are we doing here?}
+
+\subsection{Why are we here?}
+We are here to learn a new way 
+of thinking about complex computer 
+systems with the help of the Rust 
+programming language.
+
+
+\subsection{What this entails}
+We will have to do a few things in order to gain
+the most in the short amount of time we have:
+
+\begin{itemize}[label=$\bullet$]
+	\item Listen and ask questions during the lecture
+	\item Complete short homework exercises
+	\item Work our way through a final group project
+	\item Read/Watch/Listen/Do anything and everything 
+		we can lay our eyes upon!
+\end{itemize}
+
+
+\subsection{Rust doesn't solve all of your problems}
+While Rust does solve most memory safety issues
+(more on this later), most bugs are still caused
+by tired and underslept programmers.
+
+Your health is more important than your work.
+
+
+\subsection{Rust doesn't solve all of your problems}
+Developing more secure and memory-safe code in
+abstract sounds good. But it's not always.
+
+
+Developing a secure drone strike system won't help anyone.
+
+
+Secure face recognition system for the police won't help anyone either.
+
+
+A secure app that serves as a tool to further underpay and
+undermine the vulnerable workforce will bring far more trouble
+if it's unhackable using simple memory exploits.
+
+
+
+\section{Motivation}%
+ 
+\subsection{Who is interested in Rust?}
+	%Leaving all the technical points for later	
+	Rust is the most loved language for the fifth year in a row!
+	\footnotesize{(86.\% of StackOverflow users)}
+
+	
+
+	Rust is used in production in an increasing number
+	of companies: Mozilla, Atlassian, Microsoft, Google,
+	Godot, 1Password, Dropbox, Zeplin, npm, Academia.edu,
+	Sentry, Cloudflare, Coursera, Figma, Postmates etc.
+
+	
+
+	But Rust's concepts will help in many
+	other languages as well!
+ 
+
+\subsection{Why should you be interested in Rust?}
+	Rust is an extremely interesting and relatively
+	new language that can be used in a lot of
+	domains, including, but not limited to:
+	
+	\begin{itemize}[label=$\bullet$]
+		\item Web through WebAssembly
+		\item Operating Systems
+		\item Embedded Software
+		\item Large Systems Software
+			(Browsers, Servers, Databases etc.)
+		\item Games, GUI, CLI applications too!
+	\end{itemize}
+
+
+\subsection{Resources}
+	All of these can be found in our repository!
+	And even more are available online!
+	
+
+
+
+
+
+\section{A short history of systems programming}
+
+\subsection{The origins of C}
+\normalsize
+The C programming language appeared during Unix development in 1972.
+
+Since it was created for a specific purpose % an operating system
+and a specific computer, %(PDP-11) 
+on the one hand it adapted to the
+needs of the programmers, and on the 
+other it adopted a large
+amount of somewhat unique and unpopular 
+ideas and concepts.
+
+\vskip 0.8cm
+
+
+
+\subsection{Possible solutions}
+C++ is born to help address some of these problems, 
+introduces ‘zero cost’ abstractions, aimed at providing
+a nice interface for the programmer to use which
+compiles down to an almost ideal machine code.
+
+
+Still has the old instruments, hangs on to C's machine
+model %(the fucking BACKWARDS COMPATIBILITY),
+and tries to encourage using the new 
+modern safe concepts, 
+which are not ideal either
+
+
+
+
+\subsection{Modern ideas}
+
+In the meantime, languages like Java, Ruby and
+Python start sprawling up, presenting another
+model of growth - they are garbage-collected
+and are able to present even more complex
+abstractions (at the expense of the speed).
+
+
+
+Go and others try to tackle C's speed and
+low-levelness, unsuccessfully.
+
+
+
+\section{Pitfalls of the old ways}
+
+\subsection{Memory layout} 
+\inputminted[fontsize=\normalsize]{c}{code/stack.c}
+
+
+\subsection{Memory layout} 
+stack picture
+	
+
+\subsection{Buffer overflows} 
+	\inputminted[fontsize=\normalsize]{c}{code/overflow.c}
+
+
+\subsection{Null pointers}
+	\inputminted[fontsize=\normalsize]{c}{code/nullp.c}
+
+
+\subsection{Dangling pointers} 
+	\inputminted[fontsize=\normalsize]{c}{code/danp.c}
+
+
+\subsection{Invalidated iterators and double free} 
+	\inputminted[fontsize=\normalsize]{c}{code/iter.c}
+
+
+\subsection{No real error checking} 
+	\inputminted[fontsize=\normalsize]{c}{code/errorcheck.c}
+
+
+\subsection{And many more...}
+	\begin{itemize}[label=$\bullet$]
+		\item Memory leak - you can forget to free data
+		\item Thread unsafety - another function can be 
+			modifying the same memory
+	\end{itemize}
+
+
+
+
+\section{Where and why is Rust better?}
+
+\subsection{What is Rust?}
+
+
+
+A modern systems programming language.
+
+
+
+First stable version in 2014.
+
+
+
+Gets rid of unnecessary old ideas, combining 
+them with some of the fresh concepts.
+
+
+\subsection{Almost everything makes sense} 
+
+It does not care about C’s old ways 
+from the 70s which have been kept up 
+in many languages and systems since. 
+%just because (null-char strings, pointers) 
+
+
+It does not try to needlessly attach new 
+stupid things to it. Easily gets rid of bad 
+ideas since it’s a young language.
+
+
+\subsection{Memory safety guarantees}
+Rust guarantees, at compile time, that
+programs are memory-safe.
+
+
+
+This means:
+\begin{itemize}[label=$\bullet$]
+	\item No buffer overflows
+	\item Everything is bounds-checked (e.g. no null pointers, no dangling pointers)
+	\item No data races (general thread-safety)
+	\item No memory is ever written to by two things at a time
+	\item No memory is ever written and read at the same time
+\end{itemize}
+
+
+\subsection{Tradeoffs}
+These guarantees don't
+come without a cost.
+
+
+
+Some of them include:
+\begin{itemize}[label=$\bullet$]
+	\item Relatively long compile time
+	\item You sometimes have to fight with the compiler
+		(It's always right though, and even tries to help)
+	\item A whole new different approach to things
+	\item It's a young language!
+		(This also means you can help)
+\end{itemize}
+
+
+\subsection{Improvements in almost every field} 
+Rust does not only get rid of the problems
+of C and garbage-collected languages.
+
+
+It tries to be better at a lot of other things:
+\begin{itemize}[label=$\bullet$]
+	\item Super great error handling!
+	\item Algebraic data types!
+		(Functional programming concept)
+	\item Advanced macro processing!
+	\item Speed increase from C since programs 
+		often know what to expect!
+\end{itemize}
+
+
+\subsection{An amazing ecosystem} 
+%Modern languages are not only language
+%specifications. Their use almost always
+%depends on compilers, package management
+%systems, documentation, formatters, and
+%test suites!
+
+
+Rust has a great ecosystem:
+\begin{itemize}[label=$\bullet$]
+	\item rustc compiler is super helpful, and has great IDE integrations!
+	\item cargo is a unified standard for:
+		\begin{itemize}[label=$\bullet$]
+			\item Package management (pip, yay)
+			\item Dependency resolving (setup.py, requirements.txt)
+			\item Project management (makefile, CMake)
+			\item Testing (gtest etc.)
+			\item Documentation (pandoc, asciidoc etc.)
+		\end{itemize}
+	\item rustfmt is a standard formatter
+	\item clippy is a standard linter
+\end{itemize}
+
+
+
+
+\section{Basic syntax and ecosystem}
+
+\subsection{Hello world!}
+	All of the code snippets for this lecture
+	are available in the repository!
+	
+	\inputminted[fontsize=\normalsize]{rust}{code/helloworld.rs}
+	
+	\inputminted[fontsize=\normalsize]{bash}{code/helloworld.sh}
+
+
+
+\subsection{Hello cargo!}
+	\inputminted[fontsize=\normalsize]{bash}{code/hellocargo.sh}
+
+
+
+\section{Ownership and lifetimes}
+\subsection{Ownership and lifetimes}
+	\subsubsection{Abstract}
+	How would a safe system look like?
+	
+	Let's go over a few main points:
+	
+	\begin{itemize}[label=$\bullet$]
+		\item There can be many readers with no writers at the same time
+		\item There can be only one writer with no readers at the same time
+		\item Values can be used only as long as they still exist
+	\end{itemize}
+
+
+\subsection{Ownership and lifetimes}
+	\subsubsection{General}
+	In Rust's terminology, there are two notions of borrowing:
+	\begin{itemize}[label=$\bullet$]
+		\item Shared reference \&
+		\item Mutable reference \&mut
+	\end{itemize}
+
+	
+	Rust forces us to abide by the following principles:
+	\begin{itemize}[label=$\bullet$]
+		\item Every value has a single owner at any given time.
+			(You can move a value from one owner to another, but when
+			value's owner goes away, the value goes away with it too)
+		\item You can borrow a reference to a value, for as long as
+			the reference doesn't outlive the value.
+			(Borrowed references are temporary pointers, they
+			allow you to operate with values you don't own)
+		\item You can only modify a value when you have exclusive
+			access to it.
+	\end{itemize}
+	
+
+
+\subsection{Ownership and lifetimes}
+	\subsubsection{General}
+	The lifetime of a value starts when it’s created
+	and ends the last time it’s used.
+	
+	Rust computes lifetimes at compile time, we don't
+	have to do any allocations and frees, Rust borrows
+	and drops memory for us.
+
+
+\subsection{Ownership and lifetimes}
+	\subsubsection{Examples}
+	Let's see how Rust automatically drops any values after
+	their scope ends (and their owner dies):
+	
+	\inputminted[fontsize=\normalsize]{rust}{code/own1.rs}
+	
+	Rust handles all data this way, no matter the complexity,
+	it will clean up file handlers, network sockets, vectors etc.
+
+
+\subsection{Ownership and lifetimes}
+	\subsubsection{Examples}
+	Let's see how Rust handles Strings. Does this compile?
+	
+	\inputminted[fontsize=\normalsize]{rust}{code/own2.rs}
+
+
+\subsection{Ownership and lifetimes}
+	\subsubsection{Examples}
+	Does this one compile?
+	
+	\inputminted[fontsize=\normalsize]{rust}{code/own3.rs}
+
+
+\subsection{Ownership and lifetimes}
+	\subsubsection{Examples}
+	What is different for u32?
+	
+	\inputminted[fontsize=\normalsize]{rust}{code/own4.rs}
+
+
+\subsection{Ownership and lifetimes}
+	\subsubsection{Copy and Move}
+	Rust has a special notion which helps it figure
+	out whether the value should be copied or moved.
+	
+	We'll discuss this a bit later, but for now you	can
+	just remember that Rust copies stack-allocated
+	primitive values, and moves ownership of heap-
+	allocated values.
+	
+
+
+\subsection{Ownership and lifetimes}
+	\subsubsection{Examples}
+	\inputminted[fontsize=\normalsize]{rust}{code/own5.rs}
+
+
+\subsection{Ownership and lifetimes}
+	\subsubsection{Examples}
+	\inputminted[fontsize=\normalsize]{rust}{code/own6.rs}
+
+
+\subsection{Ownership and lifetimes}
+	\subsubsection{Examples}
+	Let's see how Rust will handle complex correct code:
+	
+	\inputminted[fontsize=\normalsize]{rust}{code/own7.rs}
+	
+
+
+\subsection{Ownership and lifetimes}
+	\subsubsection{Examples}
+	Let's try to invalidate an iterator:
+	
+	\inputminted[fontsize=\normalsize]{rust}{code/own8.rs}
+	
+
+
+\subsection{Ownership and lifetimes}
+	\subsubsection{Examples}
+	Let's try to return a dangling pointer:
+	
+	\inputminted[fontsize=\normalsize]{rust}{code/own9.rs}
+	
+
+
+\subsection{Ownership and lifetimes}
+We've only looked at some of the simplest cases,
+Rust's system is a lot more complex. We'll go
+over lifetimes more in the future.
+
+Since the concept of borrow checker is unique to
+Rust, until you will get used to it you will often
+encounter compiler errors when working.
+
+The compiler becomes better and better at working
+with lifetimes, and provides super helpful errors,
+but it still can be stressful to fight with it
+sometimes.
+
+
+\section{A simple practice project}
+
+\subsection{Guessing game}
+	\subsubsection{Basics}
+	\inputminted[fontsize=\footnotesize]{rust}{code/guess1.rs}
+	
+
+
+\subsection{Guessing game}
+	\subsubsection{Cargo dependencies}
+	Let's add a random number generator. We have
+	to add a dependency for rand crate for this.
+	(crates are Rust's libraries and modules)
+	
+
+	Add this to your Cargo.toml file:
+	
+	\inputminted[fontsize=\normalsize]{toml}{code/toml1.toml}
+
+
+\subsection{Guessing game}
+	\subsubsection{Random number generation}
+	\inputminted[fontsize=\footnotesize]{rust}{code/guess2.rs}
+
+
+\subsection{Guessing game}
+	\subsubsection{(Wrong) Input comparison}
+	%Match expression, enumerators explanation.*
+	\inputminted[fontsize=\normalsize]{rust}{code/guess3.rs}
+
+
+\subsection{Guessing game}
+	\subsubsection{Input comparison}
+	%Ownership explanation, maybe add a slide about that?*
+	\inputminted[fontsize=\normalsize]{rust}{code/guess4.rs}
+
+
+
+\subsection{Guessing game}
+	\subsubsection{Looping}
+	\inputminted[fontsize=\normalsize]{rust}{code/guess5.rs}
+
+
+\subsection{Guessing game}
+	\subsubsection{Breaking out of the loop}
+	\inputminted[fontsize=\normalsize]{rust}{code/guess6.rs}
+
+
+\subsection{Guessing game}
+	\subsubsection{Handling invalid input}
+	\inputminted[fontsize=\normalsize]{rust}{code/guess7.rs}
+
+
+\subsection{More on cargo}
+	\inputminted[fontsize=\normalsize]{shell}{code/cargo.sh}
+
+\end{document}

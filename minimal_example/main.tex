@@ -1,0 +1,119 @@
+% Skip over this boring header down a bit
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[usenames,dvipsnames,10pt,aspectratio=169]{beamer} 
+% Add option 'aspectratio=169' for 16:9 widescreen 
+% Add option  'handout' to ignore animations
+% If you have a smaller amount of text, feel free to also try '11pt'! / Jesper
+
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage{minted}
+\usemintedstyle{monokai}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage[document]{ragged2e}
+\usetheme{umu}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=ucuyellow,
+    filecolor=ucuyellow,      
+    urlcolor=ucuyellow,
+}
+\urlstyle{same}
+
+\usepackage[shortlabels]{enumitem}
+
+%%% Bibliography
+\usepackage[style=authoryear,backend=biber]{biblatex}
+\addbibresource{bibliography.bib}
+
+\DeclareNameAlias{author}{given-family}
+
+%%% Suppress biblatex annoying warning
+\usepackage{silence}
+\WarningFilter{biblatex}{Patching footnotes failed}
+
+%%% Some useful commands
+% pdf-friendly newline in links
+\newcommand{\pdfnewline}{\texorpdfstring{\newline}{ }} 
+% Fill the vertical space in a slide (to put text at the bottom)
+\newcommand{\framefill}{\vskip0pt plus 1filll}
+
+%%% Enter additional packages below 
+\renewcommand{\proofname}{\sffamily{Proof}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[Title]{Title}
+\author[Sultanov Andriy]{Sultanov Andriy}
+\institute{APPS@UCU}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{\contentsname}
+\tableofcontents
+\end{frame}
+
+\framepic{graphics/7.jpg}{
+ \textcolor{ucuwhite}{Section name}
+ \vskip 0.5cm
+ }
+
+\section{Section name}
+
+\begin{frame}{List slide}
+\large	
+List example:
+\vspace{0.4cm}
+\begin{itemize}[label=$\bullet$]
+	\item Item 1
+	\item Item 2
+	\item Item 3
+	\item Item 4
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Text examples}
+\large
+Usual text
+\vspace{0.2cm}
+\textcolor{ucuyellow}{Nice yellow text}\\
+\end{frame}
+
+\begin{frame}{Image example}
+	\Large
+	\centering
+	\begin{figure}[c]
+		\includegraphics[width=1\linewidth]{graphics/resources.png}
+	\end{figure}
+	Description
+\end{frame}
+
+
+
+\begin{frame}{Modern ideas}
+\large
+Text example Text example Text example Text 
+example Text example Text example Text example
+\vspace{0.5cm}
+Link example:
+\href{https://cowlark.com/2009-11-15-go/}{linky}.
+
+\end{frame}
+
+\begin{frame}{Code slide}
+	\framesubtitle{Slide subtitle}
+	\inputminted[fontsize=\normalsize]{rust}{code/example1.rs}
+\end{frame}
+
+\framepic{graphics/7.jpg}{
+	\textcolor{ucuwhite}{Thank you!}
+ \vskip 0.5cm
+ }
+
+\end{document}

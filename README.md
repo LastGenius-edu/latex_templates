@@ -1,4 +1,8 @@
-Just a repository with the sources for Latex presentations
+**Just a repository with my sources for Latex presentations**
+
+A minimal presentation example is located [over here](./minimal_example),
+with all the files set up and basic formatting included in `main.tex` file
+for you to quickly start working.
 
 Since the compilation and cleaning process is 
 basically two commands you can work without any Makefiles!
