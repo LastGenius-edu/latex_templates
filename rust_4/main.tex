@@ -66,7 +66,8 @@
 
 \section{Smart pointers}
 
-\begin{frame}{List slide}
+\begin{frame}{Smart pointers}
+	\framesubtitle{General}
 \large	
 Rust standard library has a few useful smart pointers:
 \vspace{0.4cm}
@@ -78,6 +79,101 @@ Rust standard library has a few useful smart pointers:
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Box<T>}
+	\large
+	Boxes are Rust's way to store data on the heap.\\
+	\vspace{0.4cm}
+	They are useful when you want to handle values whose\\
+	sizes can not be known at compile time as if their size\\
+	was known. This works since the size of the pointer to\\
+	the heap that the Box keeps on the stack is known.\\
+\end{frame}
+
+\begin{frame}{Box<T>}
+	\large
+	An example of moving a type that is typically stored\\
+	on the stack onto the heap:
+	\vspace{0.4cm}
+	\inputminted[fontsize=\large]{rust}{code/box1.rs}
+	\vspace{0.4cm}
+	The value is going to be deallocated once it goes out\\
+	scope, calling Box's \textcolor{ucuyellow}{drop} implementation.\\
+\end{frame}
+
+\begin{frame}{Box<T>}
+	\large
+	We could have just as well explicitly dereferenced the Box:
+	\vspace{0.4cm}
+	\inputminted[fontsize=\large]{rust}{code/box2.rs}
+\end{frame}
+
+\begin{frame}{Smart pointers}
+	\framesubtitle{Deref trait}
+	\large
+Implementing \textcolor{ucuyellow}{Deref} allows Rust to treat smart\\
+pointers as references to the values they hold.\\
+\vspace{0.4cm}
+You can dereference types impementing \textcolor{ucuyellow}{Deref}\\
+explicitly using the \textcolor{ucuyellow}{*} operator, or you can omit\\
+the dereferencing and let Rust implicitly coerce\\
+your type to the type you need.\\
+\vspace{0.4cm}
+Thus, when calling a method on a type that\\
+implements \textcolor{ucuyellow}{Deref} and does not implement the\\
+method, Rust will recursively dereference this\\
+type until it finds the appropriate method.
+\end{frame}
+
+\begin{frame}{Smart pointers}
+	\framesubtitle{Deref trait}
+	\large
+	Rust will coerce types according to these rules:
+	
+\begin{itemize}[label=$\bullet$]
+	\item From \textcolor{ucuyellow}{\&T} to 
+		\textcolor{ucuyellow}{\&U} when 
+		\textcolor{ucuyellow}{T: Deref<Target=U>}
+	\item From \textcolor{ucuyellow}{\&mut T} to
+		\textcolor{ucuyellow}{\&mut U} when 
+		\textcolor{ucuyellow}{T: DerefMut<Target=U>}
+	\item From \textcolor{ucuyellow}{\&mut T} to
+		\textcolor{ucuyellow}{\&U} when
+		\textcolor{ucuyellow}{T: Deref<Target=U>}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Box<T>}
+	\large
+	If you want to create an unsized data structure, for\\
+	example a recursive cons list, you can just use Box:
+	\vspace{0.4cm}
+	\inputminted[fontsize=\normalsize]{rust}{code/box3.rs}
+	\vspace{0.2cm}
+	What will end up being stored is an \textcolor{ucuyellow}{i32} and a\\
+	pointer \textcolor{ucuyellow}{usize} to another List on the heap.
+\end{frame}
+
+\begin{frame}{Sized}
+	Boxes can also be useful if your function takes\\
+	a trait object as a parameter (which can't possibly\\
+	have its size known at compile time).\\
+	\textcolor{ucured}{TODO}
+\end{frame}
+
+\begin{frame}{Rc<T>}
+	\large
+	\textcolor{ucured}{TODO}
+\end{frame}
+
+\begin{frame}{Cell<T>}
+	\large
+	\textcolor{ucured}{TODO}
+\end{frame}
+
+\begin{frame}{RefCell<T>}
+	\large
+	\textcolor{ucured}{TODO}
+\end{frame}
 
 \framepic{graphics/7.jpg}{
  \textcolor{ucuwhite}{Concurrency}
@@ -110,7 +206,6 @@ time.}
 	\textcolor{ucured}{TODO: talk about runtimes, executors,
 	reactors, libraries, futures, async, await, closures etc.}
 	
-	%\inputminted[fontsize=\normalsize]{rust}{code/example1.rs}
 \end{frame}
 
 \framepic{graphics/7.jpg}{
