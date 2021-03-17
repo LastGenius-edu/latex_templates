@@ -6,6 +6,6 @@
 
     println!("The value of y is: {}", y);
 
-    let five_hundred = x.0;
-    let six_point_four = x.1;
-    let one = x.2;
+    let five_hundred = tup1.0;
+    let six_point_four = tup1.1;
+    let one = tup1.2;

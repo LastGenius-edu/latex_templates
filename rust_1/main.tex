@@ -283,7 +283,7 @@ low-levelness,
 	\Large
 	\begin{itemize}[label=$\bullet$]
 		\item Memory leak - you can forget to free data
-		\item Thread unsafety - another function can be \\
+		\item Thread unsafety - another thread can be \\
 			modifying the same memory
 	\end{itemize}
 \end{frame}
@@ -338,7 +338,7 @@ programs are memory-safe.\\
 This means:
 \begin{itemize}[label=$\bullet$]
 	\item No buffer overflows
-	\item Everything is bounds-checked\\ (e.g. no null pointers, no dangling pointers)
+	\item Everything is bounds-checked if it needs to be
 	\item No data races (general thread-safety)
 	\item No memory is ever written to by two things at a time
 	\item No memory is ever written and read at the same time
@@ -575,14 +575,13 @@ We've only looked at some of the simplest cases,\\
 Rust's system is a lot more complex. We'll go\\
 over lifetimes more in the future.\\
 \vspace{0.4cm}
-Since the concept of borrow checker is unique to\\
-Rust, until you will get used to it you will often\\
-encounter compiler errors when working.\\
-\vspace{0.1cm}
+Since the concept of a borrow checker is unique to\\
+Rust, you will often encounter compiler errors\\
+when working until you get used to it.\\
+\vspace{0.4cm}
 The compiler becomes better and better at working\\
 with lifetimes, and provides super helpful errors,\\
-but it still can be stressful to fight with it\\
-sometimes.
+but it still can be stressful to fight with it sometimes.
 \end{frame}
 
 \framepic{graphics/1.jpg}{
