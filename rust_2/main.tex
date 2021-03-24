@@ -570,6 +570,46 @@ by specifying their function names:
 	is more of a "no stress" release.
 \end{frame}
 
+\begin{frame}{Rust release channels}
+	\large
+	All new Rust features go through several stages of\\
+	development, discussion and deployment. Rust has\\
+	several release channels to show the relative\\
+	readiness of new features:\\
+	\vspace{0.5cm}
+	
+	\begin{enumerate}
+		\item \textbf{Stable}
+		\item \textbf{Beta}
+		\item \textbf{Nightly}
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Unsafe and safe Rust}
+	\Large
+	So far we've only discussed the so called \textcolor{ucuyellow}{safe Rust},\\
+	and we are going to continue doing that in the future\\
+	lectures, but it's important to know that Rust has an\\
+	option to opt out of the compiler's safety checks and\\
+	turn your code into \textcolor{ucuyellow}{unsafe} Rust!\end{frame}
+
+\begin{frame}{Unsafe and safe Rust}
+	\large
+	If you do use unsafe Rust, now you are responsible\\
+	for its safety, and have to expose safe APIs to\\
+	the outside world.\\
+	\vspace{0.5cm}
+	\inputminted[fontsize=\large]{rust}{code/unsafe.rs}
+\end{frame}
+
+\begin{frame}{Unsafe and safe Rust}
+	\Large
+	Some of Rust's standard library is implemented with\\
+	unsafe code, but it's guaranteed that safe Rust can\\
+	never cause undefined behavior! If your code has UB,\\
+	it's definitely in the unsafe blocks!\\
+\end{frame}
+
 \begin{frame}{Rust community}
 	\large
 	Rust is being developed as an open-source language, and\\
