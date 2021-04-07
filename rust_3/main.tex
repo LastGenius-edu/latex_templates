@@ -61,6 +61,71 @@ Iterators, and Traits}
 \end{frame}
 
 \framepic{graphics/1.jpg}{
+ \textcolor{ucuwhite}{Notes on inclusivity and safety}
+ \vskip 0.5cm
+ }
+
+\section{Notes on inclusivity and safety}
+
+\begin{frame}{Inclusivity}
+	
+\large
+We've already talked about our responsibility as\\
+programmers to use our powers to create good and\\
+safe software. Tech isn't a goal of its own, it's a tool\\
+(which we do enjoy using) to improve life for all of\\
+humanity.\\
+
+\vspace{0.3cm}
+
+We haven't talked about different kind of responsibility,\\
+responsibility inside of our own field, and especially\\
+inside open source community. Tolerating sexism,\\
+misogyny and outright abuse does not create safe and\\
+inclusive spaces, and we should be rightly alarmed.
+
+\end{frame}
+
+\begin{frame}{Safety}
+
+\large
+Speaking about responsibility, Rust has a special\\
+notion of \textcolor{ucuyellow}{safety/unsafety}. All the code we were\\
+writing on these lectures before and will write\\
+in the future is \textcolor{ucuyellow}{safe}, with all the constraints and\\
+checks that Rust compiler imposes on us.\\
+
+\vspace{0.3cm}
+
+It is possible to skip those compiler checks, Rust\\
+has a special "safety hatch" for that, a notion of\\
+\textcolor{ucuyellow}{unsafety}, for which the programmer and not the\\
+compiler should check semantic code correctness\\
+and ensure that unsafe code is wrapped in safe APIs.\\
+	
+\end{frame}
+
+\begin{frame}{Safety}
+	
+\large
+Unsafe Rust allows you to:
+
+\begin{itemize}[label=$\bullet$]
+	\item Dereference raw pointers
+	\item Call unsafe functions (including C functions, compiler intrinsics, and the raw allocator)
+	\item Implement unsafe traits
+	\item Mutate statics
+	\item Access fields of unions
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Safety}
+\vspace{0.3cm}
+	\inputminted[fontsize=\large]{rust}{code/safety.rs}
+\end{frame}
+
+\framepic{graphics/1.jpg}{
  \textcolor{ucuwhite}{Collections in Rust}
  \vskip 0.5cm
  }
