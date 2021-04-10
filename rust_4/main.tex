@@ -69,13 +69,77 @@
 \begin{frame}{Smart pointers}
 	\framesubtitle{General}
 \large	
-Rust standard library has a few useful smart pointers:
+Rust standard library has a few useful smart pointers, which\\
+modify the possibilities of operating with the value they hold:\\
 \vspace{0.4cm}
 \begin{itemize}[label=$\bullet$]
-	\item Box<T>
-	\item Rc<T>
-	\item Cell<T>
-	\item RefCell<T>
+	\item \textcolor{ucuyellow}{Box<T>}
+	\item \textcolor{ucuyellow}{Rc<T>}
+	\item \textcolor{ucuyellow}{Cell<T>}
+	\item \textcolor{ucuyellow}{RefCell<T>}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Smart pointers}
+	\framesubtitle{Deref trait}
+	\large
+Implementing \textcolor{ucuyellow}{Deref} allows Rust to treat smart\\
+pointers as references to the values they hold.\\
+\vspace{0.4cm}
+You can dereference types impementing \textcolor{ucuyellow}{Deref}\\
+explicitly using the \textcolor{ucuyellow}{*} operator, or you can omit\\
+the dereferencing and let Rust implicitly coerce\\
+your type to the type you need.\\
+\vspace{0.4cm}
+Thus, when calling a method on a type that\\
+implements \textcolor{ucuyellow}{Deref} and does not implement the\\
+method, Rust will recursively dereference this\\
+type until it finds the appropriate method.
+\end{frame}
+
+\begin{frame}{Smart pointers}
+	\framesubtitle{Deref trait}
+	\large
+	So, let's say we want to have this kind of OOP\\
+	behavior in Rust:
+	\vspace{0.4cm}
+	\inputminted[fontsize=\normalsize]{java}{code/deref1.rs}
+\end{frame}
+
+\begin{frame}{Smart pointers}
+	\framesubtitle{Deref trait}
+	\large
+	We can model it like this:
+	\vspace{0.1cm}
+	\inputminted[fontsize=\footnotesize]{rust}{code/deref2.rs}
+	\vspace{0.4cm}
+\end{frame}
+
+\begin{frame}{Smart pointers}
+	\framesubtitle{Deref trait}
+	\large
+	And then easily use it:
+	\vspace{0.4cm}
+	\inputminted[fontsize=\large]{rust}{code/deref3.rs}
+	\vspace{0.4cm}
+	This allows you to easily operate with Rust's smart pointers.
+\end{frame}
+
+\begin{frame}{Smart pointers}
+	\framesubtitle{Deref trait}
+	\large
+	Rust will coerce types according to these rules:
+	
+\begin{itemize}[label=$\bullet$]
+	\item From \textcolor{ucuyellow}{\&T} to 
+		\textcolor{ucuyellow}{\&U} when 
+		\textcolor{ucuyellow}{T: Deref<Target=U>}
+	\item From \textcolor{ucuyellow}{\&mut T} to
+		\textcolor{ucuyellow}{\&mut U} when 
+		\textcolor{ucuyellow}{T: DerefMut<Target=U>}
+	\item From \textcolor{ucuyellow}{\&mut T} to
+		\textcolor{ucuyellow}{\&U} when
+		\textcolor{ucuyellow}{T: Deref<Target=U>}
 \end{itemize}
 \end{frame}
 
@@ -107,40 +171,6 @@ Rust standard library has a few useful smart pointers:
 	\inputminted[fontsize=\large]{rust}{code/box2.rs}
 \end{frame}
 
-\begin{frame}{Smart pointers}
-	\framesubtitle{Deref trait}
-	\large
-Implementing \textcolor{ucuyellow}{Deref} allows Rust to treat smart\\
-pointers as references to the values they hold.\\
-\vspace{0.4cm}
-You can dereference types impementing \textcolor{ucuyellow}{Deref}\\
-explicitly using the \textcolor{ucuyellow}{*} operator, or you can omit\\
-the dereferencing and let Rust implicitly coerce\\
-your type to the type you need.\\
-\vspace{0.4cm}
-Thus, when calling a method on a type that\\
-implements \textcolor{ucuyellow}{Deref} and does not implement the\\
-method, Rust will recursively dereference this\\
-type until it finds the appropriate method.
-\end{frame}
-
-\begin{frame}{Smart pointers}
-	\framesubtitle{Deref trait}
-	\large
-	Rust will coerce types according to these rules:
-	
-\begin{itemize}[label=$\bullet$]
-	\item From \textcolor{ucuyellow}{\&T} to 
-		\textcolor{ucuyellow}{\&U} when 
-		\textcolor{ucuyellow}{T: Deref<Target=U>}
-	\item From \textcolor{ucuyellow}{\&mut T} to
-		\textcolor{ucuyellow}{\&mut U} when 
-		\textcolor{ucuyellow}{T: DerefMut<Target=U>}
-	\item From \textcolor{ucuyellow}{\&mut T} to
-		\textcolor{ucuyellow}{\&U} when
-		\textcolor{ucuyellow}{T: Deref<Target=U>}
-\end{itemize}
-\end{frame}
 
 \begin{frame}{Box<T>}
 	\large
@@ -153,16 +183,26 @@ type until it finds the appropriate method.
 	pointer \textcolor{ucuyellow}{usize} to another List on the heap.
 \end{frame}
 
-\begin{frame}{Sized}
-	Boxes can also be useful if your function takes\\
-	a trait object as a parameter (which can't possibly\\
-	have its size known at compile time).\\
-	\textcolor{ucured}{TODO}
+\begin{frame}{Rc<T>}
+	\large
+	While Rust's ownership system is pretty strict, there\\
+	are some ways to have multiple ownership. \textcolor{ucuyellow}{Rc<T>} is\\
+	a reference counter that keeps track of the number\\
+	of pointers to a certain value, and drops it once\\
+	nobody uses it anymore.
 \end{frame}
 
 \begin{frame}{Rc<T>}
 	\large
-	\textcolor{ucured}{TODO}
+	\textcolor{ucuyellow}{Rc<T>} does not allow mutability, and basically changes\\
+	the ownership system so that the control over the lifetime\\
+	of the value is done during runtime, not compile time.\\
+\end{frame}
+
+
+\begin{frame}{Rc<T>}
+	\inputminted[fontsize=\normalsize]{rust}{code/rc1.rs}
+	\vspace{0.4cm}
 \end{frame}
 
 \begin{frame}{Cell<T>}
@@ -190,25 +230,6 @@ time.}
 \end{frame}
 
 \framepic{graphics/7.jpg}{
- \textcolor{ucuwhite}{Async}
- \vskip 0.5cm
- }
-
-\section{Async}
-
-\begin{frame}{Async}
-	\large
-	Rust has, relatively recently, finally settled with its\\
-	asynchronous implementation. We do not have the time to\\
-	cover all the details of its implementation, and therefore\\
-	its history and efficiency, however, we will see the ease\\
-	with which your Rust programs can become asynchronous.\\
-	\textcolor{ucured}{TODO: talk about runtimes, executors,
-	reactors, libraries, futures, async, await, closures etc.}
-	
-\end{frame}
-
-\framepic{graphics/7.jpg}{
  \textcolor{ucuwhite}{Looking back}
  \vskip 0.5cm
  }
@@ -217,11 +238,34 @@ time.}
 
 \begin{frame}{Looking back}
 	\large
-\textcolor{ucured}{TODO: Having learned these powerful abstractions
-and techniques blah blah blah}
+	Over the course of four weeks we've covered\\
+	some general topics, which I hope you will\\
+	be able to apply everywhere, not only in Rust:\\
+	\vspace{0.1cm}
+\begin{itemize}[label=$\bullet$]
+	\item Machine memory model
+	\item Safe mutability rules
+	\item Safe ownership and lifetime rules
+	\item Multithreading
+\end{itemize}
 	
 \end{frame}
 
+\begin{frame}{Looking back}
+	\large
+	And we've also looked at quite a lot of\\
+	Rust-specific stuff:
+	\vspace{0.1cm}
+\begin{itemize}[label=$\bullet$]
+	\item Rust's ownership/lifetime/mutability system
+	\item Cargo ecosystem
+	\item Algebraic types and error handling
+	\item Declarative macros
+	\item Traits
+	\item Iterators and closures
+	\item Multithreading primitives
+\end{itemize}
+\end{frame}
 \framepic{graphics/7.jpg}{
  \textcolor{ucuwhite}{And ahead...}
  \vskip 0.5cm
@@ -229,12 +273,32 @@ and techniques blah blah blah}
 
 \section{And ahead...}
 
-\begin{frame}{Looking back}
+\begin{frame}{Looking ahead}
 	\large
-\textcolor{ucured}{TODO: We haven't covered quite a lot of important
-stuff in Rust. Here are some pointers on what you could do and 
-where you should probably look}
-	
+There is quite a lot of stuff in Rust that we haven't\\
+covered. If you want to dive deeper yourself, here is\\
+a short list of some of the most important things you\\
+can look into:
+\vspace{0.2cm}
+\begin{itemize}[label=$\bullet$]
+	\item Async Rust
+	\item Procedural macros
+	\item Testing
+	\item FFI and bindings
+\end{itemize}
+\vspace{0.2cm}
+And many more...
+\end{frame}
+
+\begin{frame}{Looking ahead}
+\Large
+But, most importantly, practice makes perfect!\\
+
+\vspace{0.4cm}
+I hope that this short tour of Rust has shown\\
+you the possibilities of modern languages and\\
+ecosystems, and taught you a few important\\
+things in general!
 \end{frame}
 
 \framepic{graphics/7.jpg}{
