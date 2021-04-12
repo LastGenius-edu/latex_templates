@@ -205,14 +205,17 @@ type until it finds the appropriate method.
 	\vspace{0.4cm}
 \end{frame}
 
-\begin{frame}{Cell<T>}
+\begin{frame}{Others}
 	\large
-	\textcolor{ucured}{TODO}
-\end{frame}
-
-\begin{frame}{RefCell<T>}
-	\large
-	\textcolor{ucured}{TODO}
+	Rust also provides several other standard smart pointers,\\
+	like \textcolor{ucuyellow}{Cell<T>} and \textcolor{ucuyellow}{RefCell<T>}, which
+	allow mutating the\\
+	immutable value in various cases.\\
+	\vspace{0.4cm}
+	We are not going to cover them in these lectures, but\\
+	it's important to understand how all of these smart\\
+	pointers work under the hood, and the way they allow\\
+	us to operate with the values they hold - through \textcolor{ucuyellow}{Deref}.
 \end{frame}
 
 \framepic{graphics/7.jpg}{
@@ -221,6 +224,113 @@ type until it finds the appropriate method.
  }
 
 \section{Concurrency}
+
+\begin{frame}{Concurrency in general}
+	\large
+	We've talked about how computers work in general before,\\
+	but we've always implicitly assumed that they only run one\\
+	thing at a time - that is, we've talked about a single-core CPU.\\
+	\vspace{0.3cm}
+	How are user programs represented for that CPU? Through\\
+	the abstraction of a process - an instance of a program in\\
+	execution. It might be better to think of the process as the\\
+	collection of data structures that fully describes the state\\
+	of the execution of a certain program.\\
+\end{frame}
+
+\begin{frame}{Concurrency in general}
+	\large
+\begin{wrapfigure}{r}{0.5\textwidth}
+\centering
+\includegraphics[width=0.7\linewidth]{graphics/process1.png}
+\end{wrapfigure}
+	Thus, a process can roughly be\\
+	represented as this, a\\
+	collection of data structures\\
+	that describe it,
+	and a single thread of execution that is\\
+	actually scheduled for\\
+	execution and handles\\
+	the state of the program.
+\vspace{2.8cm}
+\end{frame}
+
+\large
+\begin{frame}{Concurrency in general}
+\begin{wrapfigure}{r}{0.5\textwidth}
+\centering
+\includegraphics[width=0.7\linewidth]{graphics/process2.png}
+\end{wrapfigure}
+	One process can contain\\
+	multiple threads of\\
+	execution though, which\\
+	are going to have the same shared memory and code
+	through the process, but are going to be running different code
+	simultaneously.
+	\vspace{2.8cm}
+\end{frame}
+
+\begin{frame}{Concurrency in general}
+	\large
+	The task of scheduling and prioritizing these threads\\
+	falls on the operating system, which allows creating\\
+	these structures in the first place, and maintains\\
+	a list of them, periodically switching the CPUs\\
+	to run this or that thread.\\
+	\vspace{0.3cm}
+	We are not going to talk about multithreading from\\
+	the OS perspective, but it's important to understand\\
+	what happens with our CPU once we have multiple cores\\
+	and are able to execute several threads at a time.
+\end{frame}
+
+\begin{frame}{Concurrency in general}
+\begin{wrapfigure}{r}{0.5\textwidth}
+\centering
+\includegraphics[width=0.7\linewidth]{graphics/process3.png}
+\end{wrapfigure}
+	
+\large
+The operating system and the CPU handle all of
+the minor details of the process of scheduling
+and actually executing the threads on several
+cores, we are just going to assume that all of this
+works nicely (it almost always does)!
+\vspace{2.8cm}
+\end{frame}
+
+\begin{frame}{Concurrency in general}
+\begin{wrapfigure}{r}{0.5\textwidth}
+\centering
+\includegraphics[width=0.7\linewidth]{graphics/process4.png}
+\end{wrapfigure}
+	
+\large
+The operating system and the CPU handle all of
+the minor details of the process of scheduling
+and actually executing the threads on several
+cores, we are just going to assume that all of this
+works nicely (it almost always does)!
+\vspace{2.8cm}
+\end{frame}
+
+\begin{frame}{Synchronization}
+	\large
+	We've already talked about how a safe system would look like,
+	where nobody will violate the memory safety of others:
+	\vspace{0.4cm}
+	\begin{itemize}[label=$\bullet$]
+		\item There can be many readers with no writers at the same time
+		\item There can be only one writer with no readers at the same time
+		\item Values can be used only as long as they still exist
+	\end{itemize}
+	\vspace{0.4cm}
+	We've seen how Rust ensures all of these rules are\\
+	satisfied in a single-thread scenario, but what if\\
+	there are several threads running at the same time?\\
+	How do we make sure they don't write into each other's\\
+	memory?
+\end{frame}
 
 \begin{frame}{Concurrency}
 	\large
