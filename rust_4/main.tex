@@ -390,14 +390,14 @@ works nicely (it almost always does)!
 
 	\vspace{0.3cm}
 	\begin{itemize}[label=$\bullet$]
-		\item Locks - before modifying the variable, just make\\
+		\item \textcolor{ucuyellow}{Locks} - before modifying the variable, just make\\
 			sure you are the only thread doing so.
-		\item Atomics - make sure nobody can interfere while\\
+		\item \textcolor{ucuyellow}{Atomics} - make sure nobody can interfere while\\
 			you are in the middle of modifying a value.
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Synchronization and ownership}
+\begin{frame}{Locking}
 	\Large
 	Rust provides us with several standard\\
 	synchronization primitives that can be\\
@@ -410,26 +410,25 @@ works nicely (it almost always does)!
 	to the value inside.
 \end{frame}
 
-\begin{frame}{Synchronization and ownership}
-	
+\begin{frame}{Locking}
 	\vspace{0.3cm}
 	\inputminted[fontsize=\large]{rust}{code/mutex1.rs}
 \end{frame}
 
-\begin{frame}{Synchronization and ownership}
+\begin{frame}{Locking}
 	Let's try using it with several threads:\\
 	\inputminted[fontsize=\footnotesize]{rust}{code/mutex2.rs}
 	\vspace{0.3cm}
 \end{frame}
 
-\begin{frame}{Synchronization and ownership}
+\begin{frame}{Locking}
 	Remember we've talked about a smart pointer that allows\\
 	multiple ownership at runtime? Let's use it!
 	\inputminted[fontsize=\footnotesize]{rust}{code/mutex3.rs}
 	\vspace{0.3cm}
 \end{frame}
 
-\begin{frame}{Synchronization and ownership}
+\begin{frame}{Locking}
 	One last trick up Rust's sleeve - \textcolor{ucuyellow}{Send}
 	and \textcolor{ucuyellow}{Sync} traits.\\
 	
@@ -452,7 +451,7 @@ works nicely (it almost always does)!
 	is okay with \textcolor{ucuyellow}{Mutex<T>}.
 \end{frame}
 
-\begin{frame}{Synchronization and ownership}
+\begin{frame}{Locking}
 	\normalsize
 	Let's instead use a thread-safe reference counter,\\
 	an atomic reference counter \textcolor{ucuyellow}{Arc<T>}:
@@ -460,9 +459,45 @@ works nicely (it almost always does)!
 	\vspace{0.4cm}
 \end{frame}
 
-\begin{frame}{Concurrency}
-	\large
-	\textcolor{ucured}{TODO: mpsc channels and stuff}
+\begin{frame}{Atomics}
+	Rust also provides atomic variants of the primitive\\
+	types: \textcolor{ucuyellow}{AtomicBool}, \textcolor{ucuyellow}{AtomicU16} and so on.\\
+	\vspace{0.2cm}
+	These guarantee that an operation is not interrupted\\
+	by a different thread, and expose a different interface\\
+	from the non-atomic single-thread primitives.\\
+	\vspace{0.2cm}
+	Ensuring that a variable is atomic, that an operation on\\
+	it either happens or doesn't at all, with no states\\
+	in-between is pretty expensive, so use these types only\\
+	when you need them!
+\end{frame}
+
+\begin{frame}{Atomics}
+	\inputminted[fontsize=\normalsize]{rust}{code/atomics1.rs}
+	\vspace{0.2cm}
+\end{frame}
+
+\begin{frame}{Channels}
+	\Large
+	There are, of course, easier ways of\\
+	communicating between threads. Rust\\
+	provides a standard implementation of a\\
+	multiple-producer single-consumer\\
+	thread-safe channel with which threads\\
+	can communicate with each other.
+\end{frame}
+
+\begin{frame}{Channels}
+	\normalsize
+	\inputminted[fontsize=\large]{rust}{code/mpsc1.rs}
+	\vspace{0.4cm}
+\end{frame}
+
+\begin{frame}{Channels}
+	\normalsize
+	\inputminted[fontsize=\normalsize]{rust}{code/mpsc2.rs}
+	\vspace{0.4cm}
 \end{frame}
 
 \framepic{graphics/7.jpg}{
@@ -499,7 +534,7 @@ works nicely (it almost always does)!
 	\item Declarative macros
 	\item Traits
 	\item Iterators and closures
-	\item Multithreading primitives
+	\item Multithreading basics
 \end{itemize}
 \end{frame}
 \framepic{graphics/7.jpg}{
