@@ -332,11 +332,137 @@ works nicely (it almost always does)!
 	memory?
 \end{frame}
 
+\begin{frame}{Synchronization}
+	There are several kinds of problems which\\
+	can arise in parallel multithreaded programs,\\
+	where we can rarely be sure which thread runs\\
+	first, and what data is accessible to each of them.\\
+	\vspace{0.2cm}
+	Without proper synchronization, you can get:\\
+	\vspace{0.2cm}
+	\begin{itemize}[label=$\bullet$]
+		\item Race conditions - when threads access shared\\
+			data in an undefined order.
+		\item Deadlocks and livelocks - when multiple threads\\
+			can not properly agree on their behavior.
+	\end{itemize}
+	\vspace{0.2cm}
+	These might only arise in rare conditions and\\
+	can be hard to reproduce.
+\end{frame}
+
+\begin{frame}{Synchronization and ownership}
+	\inputminted[fontsize=\footnotesize]{rust}{code/sync1.rs}
+	\vspace{0.3cm}
+	Why doesn't this compile?
+\end{frame}
+
+\begin{frame}{Synchronization and ownership}
+	\inputminted[fontsize=\footnotesize]{rust}{code/sync2.rs}
+	\vspace{0.3cm}
+	How do we make sure these threads finish running?
+\end{frame}
+
+\begin{frame}{Synchronization and ownership}
+	\inputminted[fontsize=\scriptsize]{rust}{code/sync3.rs}
+	\vspace{0.3cm}
+\end{frame}
+
+\begin{frame}{Synchronization and ownership}
+	\inputminted[fontsize=\scriptsize]{rust}{code/sync4.rs}
+	\vspace{0.3cm}
+\end{frame}
+
+\begin{frame}{Synchronization and ownership}
+	Alright, let's say we want our threads to modify\\
+	a single variable? We can not use \textcolor{ucuyellow}{move} closures,\\
+	since this will force threads to take the variable by\\
+	value and not by mutable reference.\\
+	\vspace{0.3cm}
+	Rust ownership model prevents us from having\\
+	several mutable references to a value at the\\
+	same time, and this works with threads too.
+\end{frame}
+
+\begin{frame}{Synchronization and ownership}
+	There are several ways of making sure that different\\
+	threads are synchronized:
+
+	\vspace{0.3cm}
+	\begin{itemize}[label=$\bullet$]
+		\item Locks - before modifying the variable, just make\\
+			sure you are the only thread doing so.
+		\item Atomics - make sure nobody can interfere while\\
+			you are in the middle of modifying a value.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Synchronization and ownership}
+	\Large
+	Rust provides us with several standard\\
+	synchronization primitives that can be\\
+	used for this, we'll only look at\\
+	several most important ones.\\
+	\vspace{0.3cm}
+	\textcolor{ucuyellow}{Mutex} is a standard way of locking variables\\
+	behind a lock, which requires you to\\
+	acquire the lock before getting access\\
+	to the value inside.
+\end{frame}
+
+\begin{frame}{Synchronization and ownership}
+	
+	\vspace{0.3cm}
+	\inputminted[fontsize=\large]{rust}{code/mutex1.rs}
+\end{frame}
+
+\begin{frame}{Synchronization and ownership}
+	Let's try using it with several threads:\\
+	\inputminted[fontsize=\footnotesize]{rust}{code/mutex2.rs}
+	\vspace{0.3cm}
+\end{frame}
+
+\begin{frame}{Synchronization and ownership}
+	Remember we've talked about a smart pointer that allows\\
+	multiple ownership at runtime? Let's use it!
+	\inputminted[fontsize=\footnotesize]{rust}{code/mutex3.rs}
+	\vspace{0.3cm}
+\end{frame}
+
+\begin{frame}{Synchronization and ownership}
+	One last trick up Rust's sleeve - \textcolor{ucuyellow}{Send}
+	and \textcolor{ucuyellow}{Sync} traits.\\
+	
+	\vspace{0.3cm}
+
+	The \textcolor{ucuyellow}{Send} trait is implemented for types
+	the ownership\\
+	of which is safe to transfer between
+	threads. \textcolor{ucuyellow}{Rc<T>} is\\
+	not one of these, it's only implemented for single-\\
+	threaded programs.
+
+	\vspace{0.3cm}
+
+	\textcolor{ucuyellow}{Sync} instead means that it
+	is safe for a type to be\\
+	referenced from different threads, which is not\\
+	okay with \textcolor{ucuyellow}{Rc<T>}, 
+	\textcolor{ucuyellow}{Cell<T>}, but
+	is okay with \textcolor{ucuyellow}{Mutex<T>}.
+\end{frame}
+
+\begin{frame}{Synchronization and ownership}
+	\normalsize
+	Let's instead use a thread-safe reference counter,\\
+	an atomic reference counter \textcolor{ucuyellow}{Arc<T>}:
+	\inputminted[fontsize=\scriptsize]{rust}{code/mutex4.rs}
+	\vspace{0.4cm}
+\end{frame}
+
 \begin{frame}{Concurrency}
 	\large
-	\textcolor{ucured}{TODO: Talk about Arc, Mutex,
-	mspc, and the way Rust's system prevents data races at compile
-time.}
+	\textcolor{ucured}{TODO: mpsc channels and stuff}
 \end{frame}
 
 \framepic{graphics/7.jpg}{
